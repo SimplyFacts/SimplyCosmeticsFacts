@@ -138,7 +138,7 @@ export default function TermsOfServiceScreen() {
           <BulletItem text="Scan product barcodes to view ingredient and nutritional information" />
           <BulletItem text="Set custom ingredient alerts to flag specific ingredients" />
           <BulletItem text="Browse your scan history for previously scanned products" />
-          <BulletItem text="View allergen, additive, and nutritional data sourced from Open Food Facts" />
+          <BulletItem text="View allergen, additive, and nutritional data sourced from Open Beauty Facts" />
           <BulletItem text="Optionally support the app through voluntary in-app purchases (Tip Jar)" />
           <BodyText style={{ marginTop: 8 }}>
             The App is provided as a reference tool only and is not a substitute
@@ -228,7 +228,7 @@ export default function TermsOfServiceScreen() {
         {/* Section 6 */}
         <SectionBlock number="6" title="Accuracy of Information">
           <BodyText style={{ marginBottom: 8 }}>
-            Product data displayed in the App is sourced from Open Food Facts, a
+            Product data displayed in the App is sourced from Open Beauty Facts, a
             crowdsourced database. While we strive to present accurate
             information, we cannot guarantee:
           </BodyText>
@@ -261,7 +261,7 @@ export default function TermsOfServiceScreen() {
             All content, design, graphics, and code within the App are the
             property of Simply Food Facts or its licensors and are protected by
             applicable intellectual property laws. Product data is provided by
-            Open Food Facts under the Open Database License (ODbL). You may not
+            Open Beauty Facts under the Open Database License (ODbL). You may not
             copy, modify, distribute, or create derivative works from the App
             without our prior written consent.
           </BodyText>
@@ -273,8 +273,8 @@ export default function TermsOfServiceScreen() {
             The App integrates with the following third-party service:
           </BodyText>
           <BulletItem
-            bold="Open Food Facts"
-            text="An open, crowdsourced database of food products. We are not responsible for the accuracy, availability, or content of data provided by Open Food Facts."
+            bold="Open Beauty Facts"
+            text="An open, crowdsourced database of food products. We are not responsible for the accuracy, availability, or content of data provided by Open Beauty Facts."
           />
           <BodyText style={{ marginTop: 8 }}>
             We are not affiliated with, endorsed by, or responsible for any

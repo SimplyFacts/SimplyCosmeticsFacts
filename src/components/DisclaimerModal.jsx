@@ -190,7 +190,7 @@ export default function DisclaimerModal({ visible, onAccept }) {
               "Data may be incomplete, outdated, or incorrect",
               "Product formulas change frequently without notice",
               "Regional and country variations exist",
-              "Information is sourced from Open Food Facts (crowdsourced)",
+              "Information is sourced from Open Beauty Facts (crowdsourced)",
               "Not intended as medical or nutritional advice",
               "Not a substitute for reading product packaging",
             ].map((item, index) => (

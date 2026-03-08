@@ -85,7 +85,7 @@ export function detectAllIngredients(product) {
     });
   }
 
-  // Source 2: Check additives_tags from Open Food Facts
+  // Source 2: Check additives_tags from Open Beauty Facts
   if (product.additives_tags && Array.isArray(product.additives_tags)) {
     product.additives_tags.forEach((tag) => {
       const match = matchIngredient(tag, CACHED_INGREDIENTS);

@@ -231,13 +231,13 @@ export default function PrivacyPolicyScreen() {
 
         {/* Section 4 */}
         <SectionBlock number="4" title="Third-Party Services">
-          <SubsectionBlock title="Open Food Facts">
+          <SubsectionBlock title="Open Beauty Facts">
             <BodyText>
-              When you scan a barcode, the app may query the Open Food Facts API
+              When you scan a barcode, the app may query the Open Beauty Facts API
               to retrieve product information (name, ingredients, allergens,
               nutritional data, and product images). Only the barcode number is
               sent in the request. No personal data is shared with Open Food
-              Facts. Open Food Facts maintains its own privacy policy and data
+              Facts. Open Beauty Facts maintains its own privacy policy and data
               protection practices that provide equal or greater protection of
               user data as outlined in this policy and as required by applicable
               privacy laws and App Store Guidelines.
@@ -283,7 +283,7 @@ export default function PrivacyPolicyScreen() {
           <BodyText>
             We do not sell, rent, trade, or share your data with any third
             parties. The only external communications are the barcode lookup
-            request sent to Open Food Facts (which contains no personal
+            request sent to Open Beauty Facts (which contains no personal
             information) and anonymous purchase validation through RevenueCat.
           </BodyText>
         </SectionBlock>

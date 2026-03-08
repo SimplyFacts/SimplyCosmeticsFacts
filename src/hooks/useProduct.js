@@ -3,13 +3,13 @@ import { useRef, useEffect, useMemo } from "react";
 import { parseIngredients } from "@/utils/ingredientUtils";
 import { detectAllIngredients } from "@/utils/ingredientMatcher";
 
-// Fetch product from local DB or OpenFoodFacts
+// Fetch product from local DB or OpenBeautyFacts
 async function fetchProduct(barcode) {
   // First try local database
   let response = await fetch(`/api/products?barcode=${barcode}`);
 
   if (!response.ok) {
-    // If not found locally, try OpenFoodFacts
+    // If not found locally, try OpenBeautyFacts
     response = await fetch(`/api/products/lookup?barcode=${barcode}`);
 
     if (!response.ok) {

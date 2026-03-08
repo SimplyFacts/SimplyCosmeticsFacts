@@ -445,7 +445,7 @@ export default function ScannerScreen() {
             </View>
           )}
 
-          {/* Trust signal - Powered by Open Food Facts - Now Clickable */}
+          {/* Trust signal - Powered by Open Beauty Facts - Now Clickable */}
           <View
             style={{
               position: "absolute",
@@ -457,7 +457,7 @@ export default function ScannerScreen() {
             }}
           >
             <TouchableOpacity
-              onPress={() => Linking.openURL("https://world.openfoodfacts.org")}
+              onPress={() => Linking.openURL("https://world.openbeautyfacts.org")}
               activeOpacity={0.7}
               style={{
                 paddingHorizontal: scaleModerate(24),
@@ -478,7 +478,7 @@ export default function ScannerScreen() {
               </Text>
               <Image
                 source={{
-                  uri: "https://world.openfoodfacts.org/images/logos/logo-variants/RVB_HORIZONTAL_WHITE_BG_OFF.svg",
+                  uri: "https://world.openbeautyfacts.org/images/logos/logo-variants/RVB_HORIZONTAL_WHITE_BG_OFF.svg",
                 }}
                 style={{
                   width: scaleWidth(315),

@@ -21,7 +21,7 @@ import { ArtificialColorsSection } from "@/components/product/ArtificialColorsSe
 import { SweetenersSection } from "@/components/product/SweetenersSection";
 import { NutritionalInfoSection } from "@/components/product/NutritionalInfoSection";
 import { FullIngredientsSection } from "@/components/product/FullIngredientsSection";
-import { OpenFoodFactsAttribution } from "@/components/product/OpenFoodFactsAttribution";
+import { OpenBeautyFactsAttribution } from "@/components/product/OpenBeautyFactsAttribution";
 import { DisclaimerFooter } from "@/components/product/DisclaimerFooter";
 import { SectionErrorBoundary } from "@/components/product/SectionErrorBoundary";
 
@@ -301,7 +301,7 @@ export default function ProductDetailScreen() {
           </SectionErrorBoundary>
         </View>
 
-        <OpenFoodFactsAttribution
+        <OpenBeautyFactsAttribution
           barcode={product.barcode}
           fontSize={fontSize}
         />

@@ -15,7 +15,7 @@ export function normalizeIngredient(text) {
     .replace(/\be\s*(\d+[a-z]*)/gi, "e$1") // "E 950" or "E950a" → "e950" or "e950a"
     .replace(/\s*#\s*/g, "#") // "Red # 40" → "red#40"
     .replace(/\bno\.?\s*/gi, "no") // "No. 5" or "No 5" → "no5"
-    .replace(/^en:/, "") // Remove "en:" prefix from Open Food Facts tags
+    .replace(/^en:/, "") // Remove "en:" prefix from Open Beauty Facts tags
     .replace(/-/g, " "); // "acesulfame-k" → "acesulfame k"
 }
 

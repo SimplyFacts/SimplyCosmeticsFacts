@@ -25,7 +25,7 @@ export function PrivacyInfoBox() {
         <Text style={{ fontSize: 13, color: "#0C4A6E", lineHeight: 20 }}>
           We store your scan history and ingredient alerts locally on your
           device and in our secure database. We never share your data with third
-          parties. Product information comes from OpenFoodFacts, a free and open
+          parties. Product information comes from OpenBeautyFacts, a free and open
           database.
         </Text>
       </View>

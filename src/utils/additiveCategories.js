@@ -1,8 +1,8 @@
-// Categories for Open Food Facts additives_tags
-// This replaces the regex-based approach with Open Food Facts' comprehensive database
+// Categories for Open Beauty Facts additives_tags
+// This replaces the regex-based approach with Open Beauty Facts' comprehensive database
 
 // Map of E-numbers and additive names to categories
-// Open Food Facts uses tags like "en:e102", "en:e621", etc.
+// Open Beauty Facts uses tags like "en:e102", "en:e621", etc.
 
 export const ADDITIVE_CATEGORIES = {
   // ARTIFICIAL COLORS (Synthetic dyes)
@@ -518,7 +518,7 @@ export const ADDITIVE_CATEGORIES = {
 };
 
 /**
- * Categorize Open Food Facts additives into user-friendly categories
+ * Categorize Open Beauty Facts additives into user-friendly categories
  * @param {Array<string>} additives_tags - Array like ["en:e102", "en:e621", "en:aspartame"]
  * @returns {Object} - Object with categorized additives
  */

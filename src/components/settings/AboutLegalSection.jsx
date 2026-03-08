@@ -36,8 +36,8 @@ export function AboutLegalSection({ onOpenURL }) {
           iconColor="#10B981"
           iconBackgroundColor="#ECFDF5"
           title="Product Data Source"
-          description="Powered by OpenFoodFacts"
-          onPress={() => onOpenURL("https://world.openfoodfacts.org")}
+          description="Powered by OpenBeautyFacts"
+          onPress={() => onOpenURL("https://world.openbeautyfacts.org")}
           rightIcon={ExternalLink}
         />
 

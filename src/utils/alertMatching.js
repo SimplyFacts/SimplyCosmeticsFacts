@@ -15,7 +15,7 @@ function matchesWholeWord(text, term) {
 }
 
 export function matchAlerts(alerts, ingredientsText, product) {
-  // Use Open Food Facts additives_tags for more comprehensive sweetener detection
+  // Use Open Beauty Facts additives_tags for more comprehensive sweetener detection
   const artificialSweetenersFound = getArtificialSweeteners(
     product.additives_tags || [],
   );

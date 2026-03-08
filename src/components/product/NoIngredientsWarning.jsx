@@ -3,9 +3,9 @@ import { AlertTriangle, ExternalLink } from "lucide-react-native";
 import { formatDate } from "@/utils/ingredientUtils";
 
 export function NoIngredientsWarning({ barcode, updatedAt, fontSize }) {
-  const handleOpenFoodFacts = () => {
+  const handleOpenBeautyFacts = () => {
     if (barcode) {
-      Linking.openURL(`https://world.openfoodfacts.org/product/${barcode}`);
+      Linking.openURL(`https://world.openbeautyfacts.org/product/${barcode}`);
     }
   };
 
@@ -121,7 +121,7 @@ export function NoIngredientsWarning({ barcode, updatedAt, fontSize }) {
       </Text>
 
       <TouchableOpacity
-        onPress={handleOpenFoodFacts}
+        onPress={handleOpenBeautyFacts}
         style={{
           backgroundColor: "#FBBF24",
           borderRadius: 6,

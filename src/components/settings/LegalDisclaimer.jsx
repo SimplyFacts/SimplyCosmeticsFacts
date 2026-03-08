@@ -7,7 +7,7 @@ export function LegalDisclaimer() {
     "Manufacturers frequently change product formulations without notice",
     "Regional and country-specific variations exist for the same products",
     "Ingredient lists may not reflect the most current version",
-    "Data is sourced from Open Food Facts, a crowdsourced database",
+    "Data is sourced from Open Beauty Facts, a crowdsourced database",
     "We cannot guarantee the accuracy, completeness, or timeliness of any information",
   ];
 

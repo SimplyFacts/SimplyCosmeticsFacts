@@ -3,12 +3,12 @@ import { Image } from "expo-image";
 import { ExternalLink, Flag } from "lucide-react-native";
 import { getFontSizes } from "@/utils/productPreferences";
 
-export function OpenFoodFactsAttribution({ barcode, fontSize = "medium" }) {
+export function OpenBeautyFactsAttribution({ barcode, fontSize = "medium" }) {
   const fonts = getFontSizes(fontSize);
 
-  const handleOpenFoodFacts = () => {
+  const handleOpenBeautyFacts = () => {
     if (barcode) {
-      Linking.openURL(`https://world.openfoodfacts.org/product/${barcode}`);
+      Linking.openURL(`https://world.openbeautyfacts.org/product/${barcode}`);
     }
   };
 
@@ -22,7 +22,7 @@ export function OpenFoodFactsAttribution({ barcode, fontSize = "medium" }) {
         borderTopColor: "#E5E7EB",
       }}
     >
-      {/* Open Food Facts Logo and Attribution */}
+      {/* Open Beauty Facts Logo and Attribution */}
       <View
         style={{
           flexDirection: "row",
@@ -40,10 +40,10 @@ export function OpenFoodFactsAttribution({ barcode, fontSize = "medium" }) {
           Data provided by
         </Text>
 
-        {/* Open Food Facts Logo */}
+        {/* Open Beauty Facts Logo */}
         <Image
           source={{
-            uri: "https://world.openfoodfacts.org/images/logos/logo-variants/RVB_HORIZONTAL_WHITE_BG_OFF.svg",
+            uri: "https://world.openbeautyfacts.org/images/logos/logo-variants/RVB_HORIZONTAL_WHITE_BG_OFF.svg",
           }}
           style={{
             width: 237,
@@ -75,7 +75,7 @@ export function OpenFoodFactsAttribution({ barcode, fontSize = "medium" }) {
       >
         {/* Report Incorrect Data */}
         <TouchableOpacity
-          onPress={handleOpenFoodFacts}
+          onPress={handleOpenBeautyFacts}
           style={{
             flex: 1,
             backgroundColor: "#FEF3C7",
@@ -102,9 +102,9 @@ export function OpenFoodFactsAttribution({ barcode, fontSize = "medium" }) {
           </Text>
         </TouchableOpacity>
 
-        {/* View on Open Food Facts */}
+        {/* View on Open Beauty Facts */}
         <TouchableOpacity
-          onPress={handleOpenFoodFacts}
+          onPress={handleOpenBeautyFacts}
           style={{
             flex: 1,
             backgroundColor: "#EFF6FF",
