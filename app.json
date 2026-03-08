@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "simplyfoodfacts.ab9205c2-9df6-4033-b222-734e5dfa9662",
+    "scheme": "simplycosmeticsfacts.ab9205c2-9df6-4033-b222-734e5dfa9662",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -58,12 +58,11 @@
       "router": {},
       "eas": {
       "projectId": "77be201b-b72f-4536-9880-8b334d530a9f"
-        "projectId": "77be201b-b72f-4536-9880-8b334d530a9f"
       }
     },
     "owner": "carlton.grizzle",
     "updates": {
-      "url": "https://u.expo.dev/09be4071-b92c-4dd4-a481-ec050116c680"
+      "url": "https://u.expo.dev/77be201b-b72f-4536-9880-8b334d530a9f"
     }
   }
 }
