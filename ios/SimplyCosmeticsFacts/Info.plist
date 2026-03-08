@@ -9,7 +9,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>$(DEVELOPMENT_LANGUAGE)</string>
     <key>CFBundleDisplayName</key>
-    <string>Simply Food Facts</string>
+    <string>Simply Cosmetics Facts</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
@@ -29,8 +29,8 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>simplyfoodfacts.ab9205c2-9df6-4033-b222-734e5dfa9662</string>
-          <string>com.createinc.ab9205c29df64033b222734e5dfa9662</string>
+          <string>simplycosmeticsfacts.ab9205c2-9df6-4033-b222-734e5dfa9662</string>
+          <string>com.simplyfacts.simplycosmeticfacts</string>
         </array>
       </dict>
     </array>

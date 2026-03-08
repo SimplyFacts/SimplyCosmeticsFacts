@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.simplyfacts.simplycosmeticfacts",
+      "bundleIdentifier": "com.simplyfacts.simplycosmeticsfacts",
       "infoPlist": {
         "NSCameraUsageDescription": "Simply Cosmetics Facts scans product barcodes with your camera to look up ingredients and safety information. For example, scan a moisturizer or shampoo to check for parabens, fragrance, or other concerning ingredients. Photos are not saved or shared—we only use the barcode number to retrieve product information.",
         "NSContactsUsageDescription": "This app does not use your contacts.",

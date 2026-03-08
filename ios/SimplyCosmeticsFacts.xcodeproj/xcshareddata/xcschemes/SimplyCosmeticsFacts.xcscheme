@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "SimplyFoodFacts.app"
-               BlueprintName = "SimplyFoodFacts"
-               ReferencedContainer = "container:SimplyFoodFacts.xcodeproj">
+               BuildableName = "SimplyCosmeticsFacts.app"
+               BlueprintName = "SimplyCosmeticsFacts"
+               ReferencedContainer = "container:SimplyCosmeticsFacts.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "SimplyFoodFactsTests.xctest"
-               BlueprintName = "SimplyFoodFactsTests"
-               ReferencedContainer = "container:SimplyFoodFacts.xcodeproj">
+               BuildableName = "SimplyCosmeticsFactsTests.xctest"
+               BlueprintName = "SimplyCosmeticsFactsTests"
+               ReferencedContainer = "container:SimplyCosmeticsFacts.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "SimplyFoodFacts.app"
-            BlueprintName = "SimplyFoodFacts"
-            ReferencedContainer = "container:SimplyFoodFacts.xcodeproj">
+            BuildableName = "SimplyCosmeticsFacts.app"
+            BlueprintName = "SimplyCosmeticsFacts"
+            ReferencedContainer = "container:SimplyCosmeticsFacts.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "SimplyFoodFacts.app"
-            BlueprintName = "SimplyFoodFacts"
-            ReferencedContainer = "container:SimplyFoodFacts.xcodeproj">
+            BuildableName = "SimplyCosmeticsFacts.app"
+            BlueprintName = "SimplyCosmeticsFacts"
+            ReferencedContainer = "container:SimplyCosmeticsFacts.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

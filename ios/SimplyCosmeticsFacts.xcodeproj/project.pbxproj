@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E426EF7E2F59B34FDB7914D /* libPods-SimplyFoodFacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06480E512B446E49FC6B4B65 /* libPods-SimplyFoodFacts.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		24E799186923453D71B047F6 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A31076956839F3BDB5BC3C /* ExpoModulesProvider.swift */; };
-		35254847C7398F64FAF19E81 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2288D8365F3C3D59E4D296A5 /* PrivacyInfo.xcprivacy */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
+		79C8D98B541563F938B15CAF /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BDAA89B6F2D6AAB85D93EB /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		D5463847C9007447540193FE /* libPods-SimplyCosmeticsFacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8990BC810F548514DBD1250D /* libPods-SimplyCosmeticsFacts.a */; };
+		E86176C7BEF06D8F55FE88B7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1AF48B6068039B8F01F24FCA /* PrivacyInfo.xcprivacy */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06480E512B446E49FC6B4B65 /* libPods-SimplyFoodFacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimplyFoodFacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		132B6AFCF88F21F657292329 /* Pods-SimplyFoodFacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyFoodFacts.release.xcconfig"; path = "Target Support Files/Pods-SimplyFoodFacts/Pods-SimplyFoodFacts.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* SimplyFoodFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyFoodFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SimplyFoodFacts/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SimplyFoodFacts/Info.plist; sourceTree = "<group>"; };
-		1B792428230F6FC621285306 /* Pods-SimplyFoodFacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyFoodFacts.debug.xcconfig"; path = "Target Support Files/Pods-SimplyFoodFacts/Pods-SimplyFoodFacts.debug.xcconfig"; sourceTree = "<group>"; };
-		2288D8365F3C3D59E4D296A5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SimplyFoodFacts/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		A2A31076956839F3BDB5BC3C /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SimplyFoodFacts/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = SimplyFoodFacts/SplashScreen.storyboard; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* SimplyCosmeticsFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCosmeticsFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SimplyCosmeticsFacts/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SimplyCosmeticsFacts/Info.plist; sourceTree = "<group>"; };
+		1AF48B6068039B8F01F24FCA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SimplyCosmeticsFacts/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1EABF7A7C4A1446D64BB888B /* Pods-SimplyCosmeticsFacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCosmeticsFacts.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts.debug.xcconfig"; sourceTree = "<group>"; };
+		8990BC810F548514DBD1250D /* libPods-SimplyCosmeticsFacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimplyCosmeticsFacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = SimplyCosmeticsFacts/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		E9755DA064CADA4F413235D3 /* Pods-SimplyCosmeticsFacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCosmeticsFacts.release.xcconfig"; path = "Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SimplyFoodFacts/AppDelegate.swift; sourceTree = "<group>"; };
-		F11748442D0722820044C1D9 /* SimplyFoodFacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SimplyFoodFacts-Bridging-Header.h"; path = "SimplyFoodFacts/SimplyFoodFacts-Bridging-Header.h"; sourceTree = "<group>"; };
+		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SimplyCosmeticsFacts/AppDelegate.swift; sourceTree = "<group>"; };
+		F11748442D0722820044C1D9 /* SimplyCosmeticsFacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SimplyCosmeticsFacts-Bridging-Header.h"; path = "SimplyCosmeticsFacts/SimplyCosmeticsFacts-Bridging-Header.h"; sourceTree = "<group>"; };
+		F4BDAA89B6F2D6AAB85D93EB /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SimplyCosmeticsFacts/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,44 +37,60 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E426EF7E2F59B34FDB7914D /* libPods-SimplyFoodFacts.a in Frameworks */,
+				D5463847C9007447540193FE /* libPods-SimplyCosmeticsFacts.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* SimplyFoodFacts */ = {
+		05A7DFE741E07C836338C09E /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				395A7941A6D8595F7098CCBC /* SimplyCosmeticsFacts */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* SimplyCosmeticsFacts */ = {
 			isa = PBXGroup;
 			children = (
 				F11748412D0307B40044C1D9 /* AppDelegate.swift */,
-				F11748442D0722820044C1D9 /* SimplyFoodFacts-Bridging-Header.h */,
+				F11748442D0722820044C1D9 /* SimplyCosmeticsFacts-Bridging-Header.h */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				2288D8365F3C3D59E4D296A5 /* PrivacyInfo.xcprivacy */,
+				1AF48B6068039B8F01F24FCA /* PrivacyInfo.xcprivacy */,
 			);
-			name = SimplyFoodFacts;
+			name = SimplyCosmeticsFacts;
+			sourceTree = "<group>";
+		};
+		1EA75B82783FAA547169FE25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EABF7A7C4A1446D64BB888B /* Pods-SimplyCosmeticsFacts.debug.xcconfig */,
+				E9755DA064CADA4F413235D3 /* Pods-SimplyCosmeticsFacts.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				06480E512B446E49FC6B4B65 /* libPods-SimplyFoodFacts.a */,
+				8990BC810F548514DBD1250D /* libPods-SimplyCosmeticsFacts.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3736F5FE2BF913EA24D69B3E /* Pods */ = {
+		395A7941A6D8595F7098CCBC /* SimplyCosmeticsFacts */ = {
 			isa = PBXGroup;
 			children = (
-				1B792428230F6FC621285306 /* Pods-SimplyFoodFacts.debug.xcconfig */,
-				132B6AFCF88F21F657292329 /* Pods-SimplyFoodFacts.release.xcconfig */,
+				F4BDAA89B6F2D6AAB85D93EB /* ExpoModulesProvider.swift */,
 			);
-			name = Pods;
-			path = Pods;
+			name = SimplyCosmeticsFacts;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -87,12 +103,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* SimplyFoodFacts */,
+				13B07FAE1A68108700A75B9A /* SimplyCosmeticsFacts */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				3736F5FE2BF913EA24D69B3E /* Pods */,
-				F725E35C9E6F0992FAE081D8 /* ExpoModulesProviders */,
+				1EA75B82783FAA547169FE25 /* Pods */,
+				05A7DFE741E07C836338C09E /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -102,7 +118,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* SimplyFoodFacts.app */,
+				13B07F961A680F5B00A75B9A /* SimplyCosmeticsFacts.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,48 +129,32 @@
 				BB2F792C24A3F905000567C9 /* Expo.plist */,
 			);
 			name = Supporting;
-			path = SimplyFoodFacts/Supporting;
-			sourceTree = "<group>";
-		};
-		E4DB4BB75E19F78A7C513BF7 /* SimplyFoodFacts */ = {
-			isa = PBXGroup;
-			children = (
-				A2A31076956839F3BDB5BC3C /* ExpoModulesProvider.swift */,
-			);
-			name = SimplyFoodFacts;
-			sourceTree = "<group>";
-		};
-		F725E35C9E6F0992FAE081D8 /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				E4DB4BB75E19F78A7C513BF7 /* SimplyFoodFacts */,
-			);
-			name = ExpoModulesProviders;
+			path = SimplyCosmeticsFacts/Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* SimplyFoodFacts */ = {
+		13B07F861A680F5B00A75B9A /* SimplyCosmeticsFacts */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SimplyFoodFacts" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SimplyCosmeticsFacts" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				8DF49DA5009A612C73579115 /* [Expo] Configure project */,
+				52CD9E6795584D7EF076099F /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				A0760FA65B7E8D60D027AB1D /* [CP] Embed Pods Frameworks */,
+				E5AFA06CC7B88BD723FD4DB2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SimplyFoodFacts;
-			productName = SimplyFoodFacts;
-			productReference = 13B07F961A680F5B00A75B9A /* SimplyFoodFacts.app */;
+			name = SimplyCosmeticsFacts;
+			productName = SimplyCosmeticsFacts;
+			productReference = 13B07F961A680F5B00A75B9A /* SimplyCosmeticsFacts.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SimplyFoodFacts" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SimplyCosmeticsFacts" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* SimplyFoodFacts */,
+				13B07F861A680F5B00A75B9A /* SimplyCosmeticsFacts */,
 			);
 		};
 /* End PBXProject section */
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				35254847C7398F64FAF19E81 /* PrivacyInfo.xcprivacy in Resources */,
+				E86176C7BEF06D8F55FE88B7 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,12 +235,36 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SimplyFoodFacts-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SimplyCosmeticsFacts-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		52CD9E6795584D7EF076099F /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/SimplyCosmeticsFacts/SimplyCosmeticsFacts.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-SimplyCosmeticsFacts/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-SimplyCosmeticsFacts/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-SimplyCosmeticsFacts/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -248,7 +272,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimplyFoodFacts/Pods-SimplyFoodFacts-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXApplication/ExpoApplication_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
@@ -299,40 +323,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplyFoodFacts/Pods-SimplyFoodFacts-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8DF49DA5009A612C73579115 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/SimplyFoodFacts/SimplyFoodFacts.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-SimplyFoodFacts/expo-configure-project.sh",
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-SimplyFoodFacts/ExpoModulesProvider.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-SimplyFoodFacts/expo-configure-project.sh\"\n";
-		};
-		A0760FA65B7E8D60D027AB1D /* [CP] Embed Pods Frameworks */ = {
+		E5AFA06CC7B88BD723FD4DB2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimplyFoodFacts/Pods-SimplyFoodFacts-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-frameworks.sh",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
 				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
@@ -345,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplyFoodFacts/Pods-SimplyFoodFacts-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -356,7 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				24E799186923453D71B047F6 /* ExpoModulesProvider.swift in Sources */,
+				79C8D98B541563F938B15CAF /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,18 +365,18 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B792428230F6FC621285306 /* Pods-SimplyFoodFacts.debug.xcconfig */;
+			baseConfigurationReference = 1EABF7A7C4A1446D64BB888B /* Pods-SimplyCosmeticsFacts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = SimplyFoodFacts/SimplyFoodFacts.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SimplyCosmeticsFacts/SimplyCosmeticsFacts.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = SimplyFoodFacts/Info.plist;
+				INFOPLIST_FILE = SimplyCosmeticsFacts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -389,9 +389,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.createinc.ab9205c29df64033b222734e5dfa9662;
-				PRODUCT_NAME = SimplyFoodFacts;
-				SWIFT_OBJC_BRIDGING_HEADER = "SimplyFoodFacts/SimplyFoodFacts-Bridging-Header.h";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simplyfacts.simplycosmeticfacts;
+				PRODUCT_NAME = SimplyCosmeticsFacts;
+				SWIFT_OBJC_BRIDGING_HEADER = "SimplyCosmeticsFacts/SimplyCosmeticsFacts-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -401,13 +401,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 132B6AFCF88F21F657292329 /* Pods-SimplyFoodFacts.release.xcconfig */;
+			baseConfigurationReference = E9755DA064CADA4F413235D3 /* Pods-SimplyCosmeticsFacts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = SimplyFoodFacts/SimplyFoodFacts.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SimplyCosmeticsFacts/SimplyCosmeticsFacts.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = SimplyFoodFacts/Info.plist;
+				INFOPLIST_FILE = SimplyCosmeticsFacts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,9 +420,9 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = com.createinc.ab9205c29df64033b222734e5dfa9662;
-				PRODUCT_NAME = SimplyFoodFacts;
-				SWIFT_OBJC_BRIDGING_HEADER = "SimplyFoodFacts/SimplyFoodFacts-Bridging-Header.h";
+				PRODUCT_BUNDLE_IDENTIFIER = com.simplyfacts.simplycosmeticfacts;
+				PRODUCT_NAME = SimplyCosmeticsFacts;
+				SWIFT_OBJC_BRIDGING_HEADER = "SimplyCosmeticsFacts/SimplyCosmeticsFacts-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -550,7 +550,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SimplyFoodFacts" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SimplyCosmeticsFacts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -559,7 +559,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SimplyFoodFacts" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SimplyCosmeticsFacts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
