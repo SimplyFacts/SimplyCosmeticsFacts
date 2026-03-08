@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity, Linking } from "react-native";
 import { Shield } from "lucide-react-native";
 
 export function LegalDisclaimer() {
@@ -9,6 +9,7 @@ export function LegalDisclaimer() {
     "Ingredient lists may not reflect the most current version",
     "Data is sourced from Open Beauty Facts, a crowdsourced database",
     "We cannot guarantee the accuracy, completeness, or timeliness of any information",
+    "Alert preset categories and ingredients are based on research from EWG Skin Deep®",
   ];
 
   return (
@@ -84,7 +85,7 @@ export function LegalDisclaimer() {
           marginBottom: 8,
         }}
       >
-        Allergy Warning:
+        Skin & Allergy Warning:
       </Text>
       <Text
         style={{
@@ -94,11 +95,11 @@ export function LegalDisclaimer() {
           marginBottom: 12,
         }}
       >
-        Do not rely solely on this app for allergy information or dietary
-        restrictions. Life-threatening allergic reactions can occur. ALWAYS read
-        the actual product label and consult with your healthcare provider
-        before consuming any product if you have food allergies or
-        sensitivities.
+        Do not rely solely on this app for skin safety or allergy information.
+        Reactions to cosmetic ingredients can range from mild irritation to
+        severe allergic responses. ALWAYS read the actual product label and
+        consult with your dermatologist or healthcare provider before using any
+        product if you have skin sensitivities or known allergies.
       </Text>
 
       <Text
@@ -129,6 +130,23 @@ export function LegalDisclaimer() {
         ))}
       </View>
 
+      <View style={{ flexDirection: "row", flexWrap: "wrap", marginBottom: 12, gap: 8 }}>
+        <TouchableOpacity
+          onPress={() => Linking.openURL("https://world.openbeautyfacts.org")}
+        >
+          <Text style={{ fontSize: 13, color: "#2563EB", textDecorationLine: "underline" }}>
+            Open Beauty Facts
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => Linking.openURL("https://www.ewg.org/skindeep")}
+        >
+          <Text style={{ fontSize: 13, color: "#2563EB", textDecorationLine: "underline" }}>
+            EWG Skin Deep®
+          </Text>
+        </TouchableOpacity>
+      </View>
+
       <Text
         style={{
           fontSize: 14,
@@ -137,7 +155,7 @@ export function LegalDisclaimer() {
           marginBottom: 8,
         }}
       >
-        Not Medical or Nutritional Advice:
+        Not Medical or Dermatological Advice:
       </Text>
       <Text
         style={{
@@ -147,11 +165,12 @@ export function LegalDisclaimer() {
           marginBottom: 12,
         }}
       >
-        This app does not provide medical advice or nutritional counseling. The
-        information displayed should not be used for diagnosing or treating
-        health problems or diseases. Always consult with a qualified healthcare
-        provider or registered dietitian for personalized medical or dietary
-        guidance.
+        This app does not provide medical or dermatological advice. The
+        information displayed should not be used for diagnosing or treating skin
+        conditions or diseases. Alert categories are based on EWG Skin Deep®, an
+        independent nonprofit research database — not a medical authority. Always
+        consult with a qualified dermatologist or healthcare provider for
+        personalized guidance.
       </Text>
 
       <Text
@@ -173,9 +192,8 @@ export function LegalDisclaimer() {
         }}
       >
         You are solely responsible for verifying all product information on the
-        physical product packaging before consumption. This app is a
-        supplementary tool only and should never replace reading the actual
-        product label.
+        physical product packaging before use. This app is a supplementary tool
+        only and should never replace reading the actual product label.
       </Text>
 
       <Text
