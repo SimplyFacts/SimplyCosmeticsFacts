@@ -9,27 +9,27 @@
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		79C8D98B541563F938B15CAF /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BDAA89B6F2D6AAB85D93EB /* ExpoModulesProvider.swift */; };
+		45B803774DB80131FE689F39 /* libPods-SimplyCosmeticsFacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82344AB5B58D3E16CD0F1A93 /* libPods-SimplyCosmeticsFacts.a */; };
+		6ACF80081084A8B0E70EDD43 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF41C5A779F1EC833002BF /* ExpoModulesProvider.swift */; };
+		96D139EB3AEFB46A88B82861 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 010A832E43816F402F4E1E59 /* PrivacyInfo.xcprivacy */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		D5463847C9007447540193FE /* libPods-SimplyCosmeticsFacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8990BC810F548514DBD1250D /* libPods-SimplyCosmeticsFacts.a */; };
-		E86176C7BEF06D8F55FE88B7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1AF48B6068039B8F01F24FCA /* PrivacyInfo.xcprivacy */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010A832E43816F402F4E1E59 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SimplyCosmeticsFacts/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* SimplyCosmeticsFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCosmeticsFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SimplyCosmeticsFacts/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SimplyCosmeticsFacts/Info.plist; sourceTree = "<group>"; };
-		1AF48B6068039B8F01F24FCA /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = SimplyCosmeticsFacts/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		1EABF7A7C4A1446D64BB888B /* Pods-SimplyCosmeticsFacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCosmeticsFacts.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts.debug.xcconfig"; sourceTree = "<group>"; };
-		8990BC810F548514DBD1250D /* libPods-SimplyCosmeticsFacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimplyCosmeticsFacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCF41C5A779F1EC833002BF /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SimplyCosmeticsFacts/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		82344AB5B58D3E16CD0F1A93 /* libPods-SimplyCosmeticsFacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimplyCosmeticsFacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = SimplyCosmeticsFacts/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		E9755DA064CADA4F413235D3 /* Pods-SimplyCosmeticsFacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCosmeticsFacts.release.xcconfig"; path = "Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts.release.xcconfig"; sourceTree = "<group>"; };
+		C67EBC464CEC19EC13D8128A /* Pods-SimplyCosmeticsFacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCosmeticsFacts.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts.debug.xcconfig"; sourceTree = "<group>"; };
+		CB7C8DCEBA02EDE46C1DC2C5 /* Pods-SimplyCosmeticsFacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCosmeticsFacts.release.xcconfig"; path = "Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SimplyCosmeticsFacts/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* SimplyCosmeticsFacts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SimplyCosmeticsFacts-Bridging-Header.h"; path = "SimplyCosmeticsFacts/SimplyCosmeticsFacts-Bridging-Header.h"; sourceTree = "<group>"; };
-		F4BDAA89B6F2D6AAB85D93EB /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-SimplyCosmeticsFacts/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +37,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5463847C9007447540193FE /* libPods-SimplyCosmeticsFacts.a in Frameworks */,
+				45B803774DB80131FE689F39 /* libPods-SimplyCosmeticsFacts.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05A7DFE741E07C836338C09E /* ExpoModulesProviders */ = {
+		13415C52AD86DB4306BE14F2 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				395A7941A6D8595F7098CCBC /* SimplyCosmeticsFacts */,
+				AF59B4C45588F4CEFB53F963 /* SimplyCosmeticsFacts */,
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
@@ -61,36 +61,28 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				1AF48B6068039B8F01F24FCA /* PrivacyInfo.xcprivacy */,
+				010A832E43816F402F4E1E59 /* PrivacyInfo.xcprivacy */,
 			);
 			name = SimplyCosmeticsFacts;
-			sourceTree = "<group>";
-		};
-		1EA75B82783FAA547169FE25 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1EABF7A7C4A1446D64BB888B /* Pods-SimplyCosmeticsFacts.debug.xcconfig */,
-				E9755DA064CADA4F413235D3 /* Pods-SimplyCosmeticsFacts.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8990BC810F548514DBD1250D /* libPods-SimplyCosmeticsFacts.a */,
+				82344AB5B58D3E16CD0F1A93 /* libPods-SimplyCosmeticsFacts.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		395A7941A6D8595F7098CCBC /* SimplyCosmeticsFacts */ = {
+		31F1FDF32CD3A3504F891656 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F4BDAA89B6F2D6AAB85D93EB /* ExpoModulesProvider.swift */,
+				C67EBC464CEC19EC13D8128A /* Pods-SimplyCosmeticsFacts.debug.xcconfig */,
+				CB7C8DCEBA02EDE46C1DC2C5 /* Pods-SimplyCosmeticsFacts.release.xcconfig */,
 			);
-			name = SimplyCosmeticsFacts;
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -107,8 +99,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				1EA75B82783FAA547169FE25 /* Pods */,
-				05A7DFE741E07C836338C09E /* ExpoModulesProviders */,
+				31F1FDF32CD3A3504F891656 /* Pods */,
+				13415C52AD86DB4306BE14F2 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -121,6 +113,14 @@
 				13B07F961A680F5B00A75B9A /* SimplyCosmeticsFacts.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AF59B4C45588F4CEFB53F963 /* SimplyCosmeticsFacts */ = {
+			isa = PBXGroup;
+			children = (
+				1FCF41C5A779F1EC833002BF /* ExpoModulesProvider.swift */,
+			);
+			name = SimplyCosmeticsFacts;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SimplyCosmeticsFacts" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				52CD9E6795584D7EF076099F /* [Expo] Configure project */,
+				E4694C221C67940A9EDE4D71 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				E5AFA06CC7B88BD723FD4DB2 /* [CP] Embed Pods Frameworks */,
+				3C64429F4E7E95F34BF5499D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				E86176C7BEF06D8F55FE88B7 /* PrivacyInfo.xcprivacy in Resources */,
+				96D139EB3AEFB46A88B82861 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,29 +242,27 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		52CD9E6795584D7EF076099F /* [Expo] Configure project */ = {
+		3C64429F4E7E95F34BF5499D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/SimplyCosmeticsFacts/SimplyCosmeticsFacts.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-SimplyCosmeticsFacts/expo-configure-project.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
 			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-SimplyCosmeticsFacts/ExpoModulesProvider.swift",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-SimplyCosmeticsFacts/expo-configure-project.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -326,27 +324,29 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E5AFA06CC7B88BD723FD4DB2 /* [CP] Embed Pods Frameworks */ = {
+		E4694C221C67940A9EDE4D71 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/React-Core-prebuilt/React.framework/React",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/ReactNativeDependencies/ReactNativeDependencies.framework/ReactNativeDependencies",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/SimplyCosmeticsFacts/SimplyCosmeticsFacts.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-SimplyCosmeticsFacts/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactNativeDependencies.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-SimplyCosmeticsFacts/ExpoModulesProvider.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimplyCosmeticsFacts/Pods-SimplyCosmeticsFacts-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-SimplyCosmeticsFacts/expo-configure-project.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -356,7 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				79C8D98B541563F938B15CAF /* ExpoModulesProvider.swift in Sources */,
+				6ACF80081084A8B0E70EDD43 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +365,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EABF7A7C4A1446D64BB888B /* Pods-SimplyCosmeticsFacts.debug.xcconfig */;
+			baseConfigurationReference = C67EBC464CEC19EC13D8128A /* Pods-SimplyCosmeticsFacts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -389,7 +389,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.simplyfacts.simplycosmeticfacts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simplyfacts.simplycosmeticsfacts;
 				PRODUCT_NAME = SimplyCosmeticsFacts;
 				SWIFT_OBJC_BRIDGING_HEADER = "SimplyCosmeticsFacts/SimplyCosmeticsFacts-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -401,7 +401,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9755DA064CADA4F413235D3 /* Pods-SimplyCosmeticsFacts.release.xcconfig */;
+			baseConfigurationReference = CB7C8DCEBA02EDE46C1DC2C5 /* Pods-SimplyCosmeticsFacts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -420,7 +420,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = com.simplyfacts.simplycosmeticfacts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simplyfacts.simplycosmeticsfacts;
 				PRODUCT_NAME = SimplyCosmeticsFacts;
 				SWIFT_OBJC_BRIDGING_HEADER = "SimplyCosmeticsFacts/SimplyCosmeticsFacts-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
