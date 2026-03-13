@@ -27,48 +27,51 @@ import {
   scaleWidth,
   scaleHeight,
 } from "@/utils/responsiveScale";
-import Svg, { Path, Circle, Rect, G } from "react-native-svg";
+import Svg, { Path, Rect } from "react-native-svg";
 
 function OpenBeautyFactsLogo({ size = 32 }) {
+  const fontSize = size * 0.38;
+  const badgePaddingH = size * 0.18;
+  const badgePaddingV = size * 0.08;
+  const badgeRadius = size * 0.15;
+
   return (
-    <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
-      {/* Circular teal badge with soap dispenser */}
-      <View
-        style={{
-          width: size,
-          height: size,
-          borderRadius: size / 2,
-          backgroundColor: "#0D9488",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Svg width={size * 0.6} height={size * 0.6} viewBox="0 0 20 22" fill="none">
-          {/* Pump head */}
-          <Rect x="8" y="0" width="4" height="2" rx="1" fill="white" />
-          {/* Pump neck */}
-          <Rect x="9.5" y="2" width="1.5" height="4" rx="0.75" fill="white" />
-          {/* Nozzle */}
-          <Rect x="5" y="5.5" width="6" height="1.5" rx="0.75" fill="white" />
-          {/* Bottle body */}
-          <Path
-            d="M4 8 C3 8 2 9 2 10 L2 19 C2 20.5 3 22 4.5 22 L15.5 22 C17 22 18 20.5 18 19 L18 10 C18 9 17 8 16 8 Z"
-            fill="white"
-          />
-          {/* Highlight stripe */}
-          <Rect x="4" y="11" width="2" height="6" rx="1" fill="#0D9488" opacity="0.4" />
-          {/* Label */}
-          <Rect x="5" y="15" width="10" height="4" rx="1.5" fill="#CCFBF1" opacity="0.7" />
-        </Svg>
-      </View>
-      {/* Wordmark */}
-      <View>
-        <Text style={{ fontSize: size * 0.38, fontWeight: "800", color: "#0D9488", letterSpacing: -0.3 }}>
-          Open Beauty
-        </Text>
-        <Text style={{ fontSize: size * 0.32, fontWeight: "600", color: "#14B8A6", letterSpacing: 0.5 }}>
-          FACTS
-        </Text>
+    <View style={{ flexDirection: "row", alignItems: "center", gap: size * 0.22 }}>
+      {/* Soap dispenser icon */}
+      <Svg width={size * 0.7} height={size} viewBox="0 0 20 28" fill="none">
+        {/* Pump head */}
+        <Rect x="8" y="0" width="4" height="2" rx="1" fill="#0D9488" />
+        {/* Pump neck */}
+        <Rect x="9.5" y="2" width="1.5" height="5" rx="0.75" fill="#0D9488" />
+        {/* Nozzle */}
+        <Rect x="5" y="6.5" width="6" height="1.5" rx="0.75" fill="#0D9488" />
+        {/* Bottle body */}
+        <Path
+          d="M4 10 C3 10 2 11 2 12 L2 23 C2 25 3.5 27 5 27 L15 27 C16.5 27 18 25 18 23 L18 12 C18 11 17 10 16 10 Z"
+          fill="#0D9488"
+        />
+        {/* Highlight stripe */}
+        <Rect x="4" y="13" width="2" height="7" rx="1" fill="#5EEAD4" opacity="0.5" />
+        {/* Label */}
+        <Rect x="5" y="19" width="10" height="5" rx="1.5" fill="#F0FDFA" opacity="0.7" />
+      </Svg>
+
+      {/* Wordmark: open [BEAUTY] facts */}
+      <View style={{ flexDirection: "row", alignItems: "center", gap: size * 0.12 }}>
+        <Text style={{ fontSize, fontWeight: "400", color: "#111827" }}>open</Text>
+        <View
+          style={{
+            backgroundColor: "#0D9488",
+            borderRadius: badgeRadius,
+            paddingHorizontal: badgePaddingH,
+            paddingVertical: badgePaddingV,
+          }}
+        >
+          <Text style={{ fontSize, fontWeight: "700", color: "#ffffff", letterSpacing: 0.5 }}>
+            BEAUTY
+          </Text>
+        </View>
+        <Text style={{ fontSize, fontWeight: "400", color: "#111827" }}>facts</Text>
       </View>
     </View>
   );
