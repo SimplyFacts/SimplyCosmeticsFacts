@@ -27,51 +27,51 @@ import {
   scaleWidth,
   scaleHeight,
 } from "@/utils/responsiveScale";
-import Svg, { Path, Rect } from "react-native-svg";
+import Svg, { Path, Rect, Circle, Ellipse } from "react-native-svg";
 
-function OpenBeautyFactsLogo({ size = 32 }) {
-  const fontSize = size * 0.38;
-  const badgePaddingH = size * 0.18;
-  const badgePaddingV = size * 0.08;
-  const badgeRadius = size * 0.15;
-
+function OpenBeautyFactsLogo() {
   return (
-    <View style={{ flexDirection: "row", alignItems: "center", gap: size * 0.22 }}>
-      {/* Soap dispenser icon */}
-      <Svg width={size * 0.7} height={size} viewBox="0 0 20 28" fill="none">
-        {/* Pump head */}
-        <Rect x="8" y="0" width="4" height="2" rx="1" fill="#0D9488" />
-        {/* Pump neck */}
-        <Rect x="9.5" y="2" width="1.5" height="5" rx="0.75" fill="#0D9488" />
-        {/* Nozzle */}
-        <Rect x="5" y="6.5" width="6" height="1.5" rx="0.75" fill="#0D9488" />
-        {/* Bottle body */}
+    <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+      {/* Icon: circular bottle with dome top, pump nozzle, and magnifying-glass-style handle */}
+      <Svg width={40} height={50} viewBox="0 0 40 50" fill="none">
+        {/* Pump nozzle on top */}
+        <Rect x="17" y="0" width="6" height="3" rx="1.5" fill="#1A9E8F" />
+        <Rect x="19" y="3" width="2" height="4" rx="1" fill="#1A9E8F" />
+        <Rect x="11" y="6.5" width="9" height="2" rx="1" fill="#1A9E8F" />
+        {/* Light blue dome — top half of circle */}
         <Path
-          d="M4 10 C3 10 2 11 2 12 L2 23 C2 25 3.5 27 5 27 L15 27 C16.5 27 18 25 18 23 L18 12 C18 11 17 10 16 10 Z"
-          fill="#0D9488"
+          d="M4 22 C4 13.16 11.16 6 20 6 C28.84 6 36 13.16 36 22 Z"
+          fill="#7DD3D8"
         />
-        {/* Highlight stripe */}
-        <Rect x="4" y="13" width="2" height="7" rx="1" fill="#5EEAD4" opacity="0.5" />
-        {/* Label */}
-        <Rect x="5" y="19" width="10" height="5" rx="1.5" fill="#F0FDFA" opacity="0.7" />
+        {/* White bottom half of circle */}
+        <Path
+          d="M4 22 C4 30.84 11.16 38 20 38 C28.84 38 36 30.84 36 22 Z"
+          fill="#FFFFFF"
+        />
+        {/* Circle outline */}
+        <Circle cx="20" cy="22" r="16" stroke="#1A9E8F" strokeWidth="2" fill="none" />
+        {/* Magnifying glass handle ring at bottom */}
+        <Circle cx="20" cy="38" r="3" stroke="#1A1A1A" strokeWidth="2.5" fill="none" />
+        {/* Handle stem */}
+        <Rect x="19" y="41" width="2" height="6" rx="1" fill="#1A1A1A" />
       </Svg>
 
       {/* Wordmark: open [BEAUTY] facts */}
-      <View style={{ flexDirection: "row", alignItems: "center", gap: size * 0.12 }}>
-        <Text style={{ fontSize, fontWeight: "400", color: "#111827" }}>open</Text>
+      <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+        <Text style={{ fontSize: 22, fontWeight: "700", color: "#111827" }}>open</Text>
         <View
           style={{
-            backgroundColor: "#0D9488",
-            borderRadius: badgeRadius,
-            paddingHorizontal: badgePaddingH,
-            paddingVertical: badgePaddingV,
+            backgroundColor: "#1A9E8F",
+            borderRadius: 6,
+            paddingHorizontal: 8,
+            paddingVertical: 3,
           }}
         >
-          <Text style={{ fontSize, fontWeight: "700", color: "#ffffff", letterSpacing: 0.5 }}>
+          <Text style={{ fontSize: 22, fontWeight: "700", color: "#ffffff" }}>
             BEAUTY
           </Text>
         </View>
-        <Text style={{ fontSize, fontWeight: "400", color: "#111827" }}>facts</Text>
+        <Text style={{ fontSize: 22, fontWeight: "700", color: "#111827" }}>facts</Text>
       </View>
     </View>
   );
@@ -526,7 +526,7 @@ export default function ScannerScreen() {
               >
                 Powered by
               </Text>
-              <OpenBeautyFactsLogo size={scaleModerate(38)} />
+              <OpenBeautyFactsLogo />
             </TouchableOpacity>
           </View>
         </CameraView>
