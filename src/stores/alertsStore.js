@@ -15,9 +15,9 @@ export const useAlertsStore = create((set, get) => ({
       const response = await fetch("/api/alerts");
       if (!response.ok) throw new Error("Failed to fetch alerts");
 
-      const alerts = await response.json();
+      const data = await response.json();
       set({
-        alerts,
+        alerts: Array.isArray(data) ? data : [],
         isLoading: false,
         lastFetched: Date.now(),
         error: null,
