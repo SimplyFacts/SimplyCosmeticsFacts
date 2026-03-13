@@ -11,7 +11,7 @@ export function SupportSection() {
     try {
       await Share.share({
         message:
-          "Check out Simply Food Facts--No opinions. No ads. No tracking. Just the facts.",
+          "Check out Simply Cosmetics Facts--No opinions. No ads. No tracking. Just the facts.",
       });
     } catch (error) {
       console.error("Error sharing:", error);
@@ -36,7 +36,7 @@ export function SupportSection() {
           iconColor="#EF4444"
           iconBackgroundColor="#FEE2E2"
           title="Tip Jar"
-          description="Help keep Simply Food Facts free"
+          description="Help keep Simply Cosmetics Facts free"
           onPress={() => router.push("/tip-jar")}
           rightIcon={ChevronRight}
         />
@@ -45,7 +45,7 @@ export function SupportSection() {
           iconColor="#3B82F6"
           iconBackgroundColor="#DBEAFE"
           title="Share with Friends"
-          description="Spread the word about Simply Food Facts"
+          description="Spread the word about Simply Cosmetics Facts"
           onPress={handleShare}
           rightIcon={ChevronRight}
           isLast={true}

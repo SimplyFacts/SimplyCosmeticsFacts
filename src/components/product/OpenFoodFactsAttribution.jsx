@@ -62,7 +62,7 @@ export function OpenBeautyFactsAttribution({ barcode, fontSize = "medium" }) {
           marginBottom: 14,
         }}
       >
-        A collaborative, free and open database of food products from around the
+        A collaborative, free and open database of cosmetic products from around the
         world.
       </Text>
 

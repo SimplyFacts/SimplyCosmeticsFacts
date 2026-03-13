@@ -68,7 +68,7 @@ export function AboutLegalSection({ onOpenURL }) {
           iconColor="#6B7280"
           iconBackgroundColor="#F9FAFB"
           title="App Version"
-          description="Simply Food Facts 1.0.0"
+          description="Simply Cosmetics Facts 1.0.0"
           isLast={true}
         />
       </View>

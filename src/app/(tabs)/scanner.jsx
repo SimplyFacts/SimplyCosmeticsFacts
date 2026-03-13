@@ -286,7 +286,7 @@ export default function ScannerScreen() {
                 marginBottom: scaleModerate(20),
               }}
             >
-              Know what's in your food
+              Know what's in your cosmetics
             </Text>
           </View>
 

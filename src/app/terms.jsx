@@ -100,7 +100,7 @@ export default function TermsOfServiceScreen() {
             marginBottom: 4,
           }}
         >
-          Simply Food Facts
+          Simply Cosmetics Facts
         </Text>
         <Text
           style={{
@@ -114,7 +114,7 @@ export default function TermsOfServiceScreen() {
 
         <BodyText style={{ marginBottom: 24 }}>
           Please read these Terms of Service ("Terms") carefully before using
-          the Simply Food Facts mobile application ("App"). By downloading,
+          the Simply Cosmetics Facts mobile application ("App"). By downloading,
           installing, or using the App, you agree to be bound by these Terms. If
           you do not agree, do not use the App.
         </BodyText>
@@ -122,7 +122,7 @@ export default function TermsOfServiceScreen() {
         {/* Section 1 */}
         <SectionBlock number="1" title="Acceptance of Terms">
           <BodyText>
-            By accessing or using Simply Food Facts, you confirm that you have
+            By accessing or using Simply Cosmetics Facts, you confirm that you have
             read, understood, and agree to these Terms and our Privacy Policy.
             We may update these Terms from time to time. Continued use of the
             App after changes are posted constitutes your acceptance of the
@@ -133,7 +133,7 @@ export default function TermsOfServiceScreen() {
         {/* Section 2 */}
         <SectionBlock number="2" title="Description of Service">
           <BodyText style={{ marginBottom: 8 }}>
-            Simply Food Facts is a barcode scanning app that allows you to:
+            Simply Cosmetics Facts is a barcode scanning app that allows you to:
           </BodyText>
           <BulletItem text="Scan product barcodes to view ingredient and nutritional information" />
           <BulletItem text="Set custom ingredient alerts to flag specific ingredients" />
@@ -149,7 +149,7 @@ export default function TermsOfServiceScreen() {
         {/* Section 3 */}
         <SectionBlock number="3" title="In-App Purchases & Tip Jar">
           <BodyText style={{ marginBottom: 8 }}>
-            Simply Food Facts offers an optional Tip Jar feature, which allows
+            Simply Cosmetics Facts offers an optional Tip Jar feature, which allows
             you to make voluntary, one-time in-app purchases to support the
             app's ongoing development and maintenance.
           </BodyText>
@@ -220,8 +220,8 @@ export default function TermsOfServiceScreen() {
             </Text>
           </View>
           <BulletItem text="Do not rely on the App as your sole source of allergy or dietary information." />
-          <BulletItem text="Always read the physical product label before consuming any food product." />
-          <BulletItem text="Consult a qualified healthcare provider or registered dietitian for personalized advice regarding food allergies, intolerances, or dietary needs." />
+          <BulletItem text="Always read the physical product label before using any cosmetic product." />
+          <BulletItem text="Consult a qualified healthcare provider or dermatologist for personalized advice regarding skin sensitivities, intolerances, or cosmetic needs." />
           <BulletItem text="In the event of a suspected allergic reaction, seek immediate medical attention." />
         </SectionBlock>
 
@@ -259,7 +259,7 @@ export default function TermsOfServiceScreen() {
         <SectionBlock number="8" title="Intellectual Property">
           <BodyText>
             All content, design, graphics, and code within the App are the
-            property of Simply Food Facts or its licensors and are protected by
+            property of Simply Cosmetics Facts or its licensors and are protected by
             applicable intellectual property laws. Product data is provided by
             Open Beauty Facts under the Open Database License (ODbL). You may not
             copy, modify, distribute, or create derivative works from the App
@@ -297,7 +297,7 @@ export default function TermsOfServiceScreen() {
         {/* Section 11 */}
         <SectionBlock number="11" title="Limitation of Liability">
           <BodyText>
-            To the fullest extent permitted by applicable law, Simply Food Facts
+            To the fullest extent permitted by applicable law, Simply Cosmetics Facts
             and its developers, officers, employees, and affiliates shall not be
             liable for any indirect, incidental, special, consequential, or
             punitive damages, including but not limited to personal injury,
@@ -312,7 +312,7 @@ export default function TermsOfServiceScreen() {
         {/* Section 12 */}
         <SectionBlock number="12" title="Indemnification">
           <BodyText>
-            You agree to indemnify, defend, and hold harmless Simply Food Facts
+            You agree to indemnify, defend, and hold harmless Simply Cosmetics Facts
             and its developers from and against any claims, liabilities,
             damages, losses, or expenses (including reasonable attorneys' fees)
             arising out of or in any way connected with your use of the App,
@@ -336,7 +336,7 @@ export default function TermsOfServiceScreen() {
         <SectionBlock number="14" title="Governing Law">
           <BodyText>
             These Terms shall be governed by and construed in accordance with
-            the laws of the jurisdiction in which Simply Food Facts operates,
+            the laws of the jurisdiction in which Simply Cosmetics Facts operates,
             without regard to its conflict of law provisions. Any disputes
             arising under these Terms shall be resolved in the competent courts
             of that jurisdiction.
@@ -380,7 +380,7 @@ export default function TermsOfServiceScreen() {
               textAlign: "center",
             }}
           >
-            Simply Food Facts · Terms of Service · Last updated March 1, 2026
+            Simply Cosmetics Facts · Terms of Service · Last updated March 1, 2026
           </Text>
         </View>
       </ScrollView>

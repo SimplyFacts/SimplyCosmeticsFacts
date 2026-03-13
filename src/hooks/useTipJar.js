@@ -53,7 +53,7 @@ function useTipJar() {
       const purchaseResult = await Purchases.purchasePackage(tipPackage);
       Alert.alert(
         "Thank You! 🎉",
-        "Your support means the world to us! It helps keep Simply Food Facts running and improving.",
+        "Your support means the world to us! It helps keep Simply Cosmetics Facts running and improving.",
         [{ text: "You're Welcome!", style: "default" }],
       );
       return true;

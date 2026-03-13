@@ -209,7 +209,7 @@ export default function TipJarScreen() {
               marginBottom: 8,
             }}
           >
-            Support Simply Food Facts
+            Support Simply Cosmetics Facts
           </Text>
 
           <Text
@@ -221,7 +221,7 @@ export default function TipJarScreen() {
               paddingHorizontal: 16,
             }}
           >
-            Simply Food Facts is free to use with no ads. If you find it
+            Simply Cosmetics Facts is free to use with no ads. If you find it
             helpful, a tip helps us keep it running and improving!
           </Text>
         </View>

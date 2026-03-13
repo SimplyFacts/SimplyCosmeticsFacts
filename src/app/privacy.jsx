@@ -118,7 +118,7 @@ export default function PrivacyPolicyScreen() {
             marginBottom: 4,
           }}
         >
-          Simply Food Facts
+          Simply Cosmetics Facts
         </Text>
         <Text
           style={{
@@ -131,9 +131,8 @@ export default function PrivacyPolicyScreen() {
         </Text>
 
         <BodyText style={{ marginBottom: 24 }}>
-          Simply Food Facts ("we," "us," or "our") is a barcode scanning app
-          that helps you view ingredient and nutritional information for food
-          products. This Privacy Policy explains what data we collect, how we
+          Simply Cosmetics Facts ("we," "us," or "our") is a barcode scanning app
+          that helps you view ingredient information for cosmetic products. This Privacy Policy explains what data we collect, how we
           use it, and your choices.
         </BodyText>
 
@@ -197,7 +196,7 @@ export default function PrivacyPolicyScreen() {
         {/* Section 3 */}
         <SectionBlock number="3" title="In-App Purchases">
           <BodyText style={{ marginBottom: 8 }}>
-            Simply Food Facts offers an optional Tip Jar feature that allows you
+            Simply Cosmetics Facts offers an optional Tip Jar feature that allows you
             to make voluntary, one-time in-app purchases to support the app's
             development.
           </BodyText>
@@ -236,7 +235,7 @@ export default function PrivacyPolicyScreen() {
               When you scan a barcode, the app may query the Open Beauty Facts API
               to retrieve product information (name, ingredients, allergens,
               nutritional data, and product images). Only the barcode number is
-              sent in the request. No personal data is shared with Open Food
+              sent in the request. No personal data is shared with Open Beauty
               Facts. Open Beauty Facts maintains its own privacy policy and data
               protection practices that provide equal or greater protection of
               user data as outlined in this policy and as required by applicable
@@ -315,7 +314,7 @@ export default function PrivacyPolicyScreen() {
         {/* Section 8 */}
         <SectionBlock number="8" title="Children's Privacy">
           <BodyText>
-            Simply Food Facts is not directed at children under 13. We do not
+            Simply Cosmetics Facts is not directed at children under 13. We do not
             knowingly collect personal information from children. The app does
             not require account creation and does not collect personal
             identifiers.
@@ -366,7 +365,7 @@ export default function PrivacyPolicyScreen() {
               textAlign: "center",
             }}
           >
-            Simply Food Facts · Privacy Policy · Last updated March 1, 2026
+            Simply Cosmetics Facts · Privacy Policy · Last updated March 1, 2026
           </Text>
         </View>
       </ScrollView>
