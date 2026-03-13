@@ -381,7 +381,7 @@ export default function ScannerScreen() {
                 textAlign: "center",
               }}
             >
-              Access more than 2M+ products. Point camera at product barcode.
+              Access 200K+ cosmetic products. Point camera at product barcode.
             </Text>
           </View>
 
