@@ -277,7 +277,7 @@ export default function ScannerScreen() {
                 marginBottom: scaleModerate(2),
               }}
             >
-              Simply Food Facts
+              Simply Cosmetics Facts
             </Text>
             <Text
               style={{
