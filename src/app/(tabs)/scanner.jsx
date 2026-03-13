@@ -2,6 +2,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import {
   View,
   Text,
+  Image,
   TouchableOpacity,
   ActivityIndicator,
   Dimensions,
@@ -27,55 +28,7 @@ import {
   scaleWidth,
   scaleHeight,
 } from "@/utils/responsiveScale";
-import Svg, { Path, Rect, Circle, Ellipse } from "react-native-svg";
 
-function OpenBeautyFactsLogo() {
-  return (
-    <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
-      {/* Icon: circular bottle with dome top, pump nozzle, and magnifying-glass-style handle */}
-      <Svg width={40} height={50} viewBox="0 0 40 50" fill="none">
-        {/* Pump nozzle on top */}
-        <Rect x="17" y="0" width="6" height="3" rx="1.5" fill="#1A9E8F" />
-        <Rect x="19" y="3" width="2" height="4" rx="1" fill="#1A9E8F" />
-        <Rect x="11" y="6.5" width="9" height="2" rx="1" fill="#1A9E8F" />
-        {/* Light blue dome — top half of circle */}
-        <Path
-          d="M4 22 C4 13.16 11.16 6 20 6 C28.84 6 36 13.16 36 22 Z"
-          fill="#7DD3D8"
-        />
-        {/* White bottom half of circle */}
-        <Path
-          d="M4 22 C4 30.84 11.16 38 20 38 C28.84 38 36 30.84 36 22 Z"
-          fill="#FFFFFF"
-        />
-        {/* Circle outline */}
-        <Circle cx="20" cy="22" r="16" stroke="#1A9E8F" strokeWidth="2" fill="none" />
-        {/* Magnifying glass handle ring at bottom */}
-        <Circle cx="20" cy="38" r="3" stroke="#1A1A1A" strokeWidth="2.5" fill="none" />
-        {/* Handle stem */}
-        <Rect x="19" y="41" width="2" height="6" rx="1" fill="#1A1A1A" />
-      </Svg>
-
-      {/* Wordmark: open [BEAUTY] facts */}
-      <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
-        <Text style={{ fontSize: 22, fontWeight: "700", color: "#111827" }}>open</Text>
-        <View
-          style={{
-            backgroundColor: "#1A9E8F",
-            borderRadius: 6,
-            paddingHorizontal: 8,
-            paddingVertical: 3,
-          }}
-        >
-          <Text style={{ fontSize: 22, fontWeight: "700", color: "#ffffff" }}>
-            BEAUTY
-          </Text>
-        </View>
-        <Text style={{ fontSize: 22, fontWeight: "700", color: "#111827" }}>facts</Text>
-      </View>
-    </View>
-  );
-}
 
 // Scan line component that animates when shown
 function ScanLine() {
@@ -526,7 +479,11 @@ export default function ScannerScreen() {
               >
                 Powered by
               </Text>
-              <OpenBeautyFactsLogo />
+              <Image
+                source={require("@/assets/images/openbeautyfacts-logo.png")}
+                style={{ width: 180, height: 55 }}
+                resizeMode="contain"
+              />
             </TouchableOpacity>
           </View>
         </CameraView>
