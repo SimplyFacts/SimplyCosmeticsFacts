@@ -1,6 +1,6 @@
 import { Alert } from "react-native";
 import * as Linking from "expo-linking";
-import { useAlertsStore } from "@src/stores/alertsStore";
+import { useAlertsStore } from "@/stores/alertsStore";
 
 export const handleClearScanHistory = () => {
   Alert.alert(
