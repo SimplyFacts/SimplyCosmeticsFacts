@@ -270,6 +270,8 @@ export default function ScannerScreen() {
             }}
           >
             <Text
+              adjustsFontSizeToFit={true}
+              numberOfLines={1}
               style={{
                 fontSize: scaleFont(32),
                 fontWeight: "800",
