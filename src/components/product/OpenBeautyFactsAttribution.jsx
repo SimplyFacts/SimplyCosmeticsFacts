@@ -1,7 +1,29 @@
 import { View, Text, TouchableOpacity, Linking } from "react-native";
-import { Image } from "expo-image";
+import Svg, { Path, Circle, Rect } from "react-native-svg";
 import { ExternalLink, Flag } from "lucide-react-native";
 import { getFontSizes } from "@/utils/productPreferences";
+
+function SoapDispenserIcon({ size = 36 }) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 36 36" fill="none">
+      {/* Pump head */}
+      <Rect x="15" y="3" width="6" height="3" rx="1.5" fill="#0D9488" />
+      {/* Pump neck */}
+      <Rect x="17" y="6" width="2" height="6" rx="1" fill="#0D9488" />
+      {/* Pump nozzle */}
+      <Rect x="11" y="11" width="8" height="2" rx="1" fill="#0D9488" />
+      {/* Bottle body */}
+      <Path
+        d="M11 14 C9 14 8 15.5 8 17 L8 29 C8 31 9.5 32 11 32 L25 32 C26.5 32 28 31 28 29 L28 17 C28 15.5 27 14 25 14 Z"
+        fill="#0D9488"
+      />
+      {/* Highlight */}
+      <Rect x="11" y="17" width="3" height="8" rx="1.5" fill="#5EEAD4" opacity="0.5" />
+      {/* Label area */}
+      <Rect x="12" y="22" width="12" height="6" rx="2" fill="#F0FDFA" opacity="0.6" />
+    </Svg>
+  );
+}
 
 export function OpenBeautyFactsAttribution({ barcode, fontSize = "medium" }) {
   const fonts = getFontSizes(fontSize);
@@ -40,17 +62,18 @@ export function OpenBeautyFactsAttribution({ barcode, fontSize = "medium" }) {
           Data provided by
         </Text>
 
-        {/* Open Beauty Facts Logo */}
-        <Image
-          source={{
-            uri: "https://world.openbeautyfacts.org/images/logos/logo-variants/RVB_HORIZONTAL_WHITE_BG_OFF.svg",
-          }}
+        {/* Open Beauty Facts Icon */}
+        <SoapDispenserIcon size={36} />
+        <Text
           style={{
-            width: 237,
-            height: 55,
+            fontSize: fonts.bodyText,
+            fontWeight: "700",
+            color: "#0D9488",
+            marginLeft: 8,
           }}
-          contentFit="contain"
-        />
+        >
+          Open Beauty Facts
+        </Text>
       </View>
 
       {/* Attribution Description */}
