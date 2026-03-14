@@ -1,15 +1,17 @@
 import { View } from "react-native";
-import { FlaskConical, Droplet, Candy } from "lucide-react-native";
+import { Sparkles, ShieldAlert, FlaskConical, Droplets } from "lucide-react-native";
 import { SectionHeader } from "./SectionHeader";
 import { SettingToggleItem } from "./SettingToggleItem";
 
 export function ProductInformationSection({
-  showArtificialIngredients,
-  showArtificialColors,
-  showSweeteners,
-  onToggleArtificialIngredients,
-  onToggleArtificialColors,
-  onToggleSweeteners,
+  showSyntheticFragrances,
+  showParabens,
+  showPFAS,
+  showSulfates,
+  onToggleSyntheticFragrances,
+  onToggleParabens,
+  onTogglePFAS,
+  onToggleSulfates,
 }) {
   return (
     <View style={{ marginTop: 24 }}>
@@ -25,37 +27,49 @@ export function ProductInformationSection({
         }}
       >
         <SettingToggleItem
-          icon={FlaskConical}
+          icon={Sparkles}
           iconColor="#B45309"
-          iconBackgroundColor="#FEF9E7"
-          title="Show Artificial Ingredients"
-          description="Display artificial additives and preservatives"
-          value={showArtificialIngredients}
-          onValueChange={onToggleArtificialIngredients}
+          iconBackgroundColor="#FFFBEB"
+          title="Show Synthetic Fragrances"
+          description="Display synthetic fragrance ingredients in products"
+          value={showSyntheticFragrances}
+          onValueChange={onToggleSyntheticFragrances}
           trackColorTrue="#FCD34D"
           thumbColorTrue="#B45309"
         />
 
         <SettingToggleItem
-          icon={Droplet}
+          icon={ShieldAlert}
           iconColor="#7C3AED"
           iconBackgroundColor="#F3E8FF"
-          title="Show Artificial Colors"
-          description="Display artificial food dyes and colorings"
-          value={showArtificialColors}
-          onValueChange={onToggleArtificialColors}
+          title="Show Parabens"
+          description="Display paraben preservatives in products"
+          value={showParabens}
+          onValueChange={onToggleParabens}
           trackColorTrue="#C084FC"
           thumbColorTrue="#7C3AED"
         />
 
         <SettingToggleItem
-          icon={Candy}
+          icon={FlaskConical}
+          iconColor="#2563EB"
+          iconBackgroundColor="#EFF6FF"
+          title="Show PFAS"
+          description="Display per- and polyfluoroalkyl substances in products"
+          value={showPFAS}
+          onValueChange={onTogglePFAS}
+          trackColorTrue="#93C5FD"
+          thumbColorTrue="#2563EB"
+        />
+
+        <SettingToggleItem
+          icon={Droplets}
           iconColor="#C2410C"
           iconBackgroundColor="#FFF7ED"
-          title="Show Sweeteners"
-          description="Display all types of sweeteners in products"
-          value={showSweeteners}
-          onValueChange={onToggleSweeteners}
+          title="Show Sulfates"
+          description="Display sulfate cleansing agents in products"
+          value={showSulfates}
+          onValueChange={onToggleSulfates}
           trackColorTrue="#FDBA74"
           thumbColorTrue="#C2410C"
           isLast={true}

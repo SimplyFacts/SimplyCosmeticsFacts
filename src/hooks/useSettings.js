@@ -3,10 +3,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function useSettings() {
   const [largeFontDefault, setLargeFontDefault] = useState(false);
-  const [showArtificialIngredients, setShowArtificialIngredients] =
-    useState(true);
-  const [showArtificialColors, setShowArtificialColors] = useState(true);
-  const [showSweeteners, setShowSweeteners] = useState(true);
+  const [showSyntheticFragrances, setShowSyntheticFragrances] = useState(true);
+  const [showParabens, setShowParabens] = useState(true);
+  const [showPFAS, setShowPFAS] = useState(true);
+  const [showSulfates, setShowSulfates] = useState(true);
 
   useEffect(() => {
     loadSettings();
@@ -16,9 +16,10 @@ export function useSettings() {
     try {
       const keys = [
         "largeFontDefault",
-        "showArtificialIngredients",
-        "showArtificialColors",
-        "showSweeteners",
+        "showSyntheticFragrances",
+        "showParabens",
+        "showPFAS",
+        "showSulfates",
       ];
 
       const values = await AsyncStorage.multiGet(keys);
@@ -31,22 +32,25 @@ export function useSettings() {
       if (settings.largeFontDefault !== null) {
         setLargeFontDefault(settings.largeFontDefault === "true");
       }
-      if (settings.showArtificialIngredients !== null) {
-        setShowArtificialIngredients(
-          settings.showArtificialIngredients === "true",
-        );
+      if (settings.showSyntheticFragrances !== null) {
+        setShowSyntheticFragrances(settings.showSyntheticFragrances === "true");
       } else {
-        setShowArtificialIngredients(true);
+        setShowSyntheticFragrances(true);
       }
-      if (settings.showArtificialColors !== null) {
-        setShowArtificialColors(settings.showArtificialColors === "true");
+      if (settings.showParabens !== null) {
+        setShowParabens(settings.showParabens === "true");
       } else {
-        setShowArtificialColors(true);
+        setShowParabens(true);
       }
-      if (settings.showSweeteners !== null) {
-        setShowSweeteners(settings.showSweeteners === "true");
+      if (settings.showPFAS !== null) {
+        setShowPFAS(settings.showPFAS === "true");
       } else {
-        setShowSweeteners(true);
+        setShowPFAS(true);
+      }
+      if (settings.showSulfates !== null) {
+        setShowSulfates(settings.showSulfates === "true");
+      } else {
+        setShowSulfates(true);
       }
     } catch (error) {
       console.error("Failed to load settings:", error);
@@ -62,28 +66,37 @@ export function useSettings() {
     }
   };
 
-  const handleToggleArtificialIngredients = async (value) => {
+  const handleToggleSyntheticFragrances = async (value) => {
     try {
-      await AsyncStorage.setItem("showArtificialIngredients", value.toString());
-      setShowArtificialIngredients(value);
+      await AsyncStorage.setItem("showSyntheticFragrances", value.toString());
+      setShowSyntheticFragrances(value);
     } catch (error) {
       console.error("Failed to save setting:", error);
     }
   };
 
-  const handleToggleArtificialColors = async (value) => {
+  const handleToggleParabens = async (value) => {
     try {
-      await AsyncStorage.setItem("showArtificialColors", value.toString());
-      setShowArtificialColors(value);
+      await AsyncStorage.setItem("showParabens", value.toString());
+      setShowParabens(value);
     } catch (error) {
       console.error("Failed to save setting:", error);
     }
   };
 
-  const handleToggleSweeteners = async (value) => {
+  const handleTogglePFAS = async (value) => {
     try {
-      await AsyncStorage.setItem("showSweeteners", value.toString());
-      setShowSweeteners(value);
+      await AsyncStorage.setItem("showPFAS", value.toString());
+      setShowPFAS(value);
+    } catch (error) {
+      console.error("Failed to save setting:", error);
+    }
+  };
+
+  const handleToggleSulfates = async (value) => {
+    try {
+      await AsyncStorage.setItem("showSulfates", value.toString());
+      setShowSulfates(value);
     } catch (error) {
       console.error("Failed to save setting:", error);
     }
@@ -91,12 +104,14 @@ export function useSettings() {
 
   return {
     largeFontDefault,
-    showArtificialIngredients,
-    showArtificialColors,
-    showSweeteners,
+    showSyntheticFragrances,
+    showParabens,
+    showPFAS,
+    showSulfates,
     handleToggleLargeFont,
-    handleToggleArtificialIngredients,
-    handleToggleArtificialColors,
-    handleToggleSweeteners,
+    handleToggleSyntheticFragrances,
+    handleToggleParabens,
+    handleTogglePFAS,
+    handleToggleSulfates,
   };
 }

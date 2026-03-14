@@ -13,12 +13,17 @@ import {
 import { matchAlerts } from "@/utils/alertMatching";
 import { useAlertsStore } from "@/stores/alertsStore";
 import { useProduct } from "@/hooks/useProduct";
+import { useSettings } from "@/hooks/useSettings";
 import { ProductHeader } from "@/components/product/ProductHeader";
 import { ProductCard } from "@/components/product/ProductCard";
 import { AlertsSection } from "@/components/product/AlertsSection";
 import { AllergensSection } from "@/components/product/AllergensSection";
 import { ArtificialColorsSection } from "@/components/product/ArtificialColorsSection";
 import { SweetenersSection } from "@/components/product/SweetenersSection";
+import { SyntheticFragrancesSection } from "@/components/product/SyntheticFragrancesSection";
+import { ParabensSection } from "@/components/product/ParabensSection";
+import { PFASSection } from "@/components/product/PFASSection";
+import { SulfatesSection } from "@/components/product/SulfatesSection";
 import { NutritionalInfoSection } from "@/components/product/NutritionalInfoSection";
 import { FullIngredientsSection } from "@/components/product/FullIngredientsSection";
 import { OpenBeautyFactsAttribution } from "@/components/product/OpenBeautyFactsAttribution";
@@ -35,6 +40,10 @@ export default function ProductDetailScreen() {
   // Use React Query hook for product data WITH CACHED OPTIMIZATIONS
   const { product, isLoading, error, parsedIngredients, detectedIngredients } =
     useProduct(barcode);
+
+  // Read cosmetics settings toggles
+  const { showSyntheticFragrances, showParabens, showPFAS, showSulfates } =
+    useSettings();
 
   // Use global alerts store
   const { alerts, fetchAlerts, shouldRefresh, addAlert, deleteAlert } =
@@ -274,6 +283,42 @@ export default function ProductDetailScreen() {
                   fontSize={fontSize}
                 />
               </SectionErrorBoundary>
+
+              {showSyntheticFragrances && (
+                <SectionErrorBoundary sectionName="Synthetic fragrances">
+                  <SyntheticFragrancesSection
+                    items={detectedIngredients.syntheticFragrances}
+                    fontSize={fontSize}
+                  />
+                </SectionErrorBoundary>
+              )}
+
+              {showParabens && (
+                <SectionErrorBoundary sectionName="Parabens">
+                  <ParabensSection
+                    items={detectedIngredients.parabens}
+                    fontSize={fontSize}
+                  />
+                </SectionErrorBoundary>
+              )}
+
+              {showPFAS && (
+                <SectionErrorBoundary sectionName="PFAS">
+                  <PFASSection
+                    items={detectedIngredients.pfas}
+                    fontSize={fontSize}
+                  />
+                </SectionErrorBoundary>
+              )}
+
+              {showSulfates && (
+                <SectionErrorBoundary sectionName="Sulfates">
+                  <SulfatesSection
+                    items={detectedIngredients.sulfates}
+                    fontSize={fontSize}
+                  />
+                </SectionErrorBoundary>
+              )}
             </>
           )}
         </View>

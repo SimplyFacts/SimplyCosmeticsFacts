@@ -5,6 +5,12 @@ import {
   parseIngredients,
   containsKeywords,
 } from "./ingredientParser";
+import {
+  detectSyntheticFragrances,
+  detectParabens,
+  detectPFAS,
+  detectSulfates,
+} from "./ingredientDetection";
 
 // OPTIMIZATION: Cache ingredient database at module level
 const CACHED_INGREDIENTS = getAllIngredients();
@@ -47,6 +53,10 @@ export function detectAllIngredients(product) {
     sweeteners: [], // ALL sweeteners (artificial, natural, sugar alcohols)
     artificialColors: [], // Only artificial colors
     artificialIngredients: [], // Only artificial ingredients (preservatives, emulsifiers, etc.)
+    syntheticFragrances: [],
+    parabens: [],
+    pfas: [],
+    sulfates: [],
   };
 
   // Track what we've already found to avoid duplicates
@@ -106,6 +116,15 @@ export function detectAllIngredients(product) {
         addMatch({ ...match, source: "ingredients_analysis_tags" });
       }
     });
+  }
+
+  // Source 4: Cosmetics-specific pattern detection on ingredients text
+  if (product.ingredients) {
+    const text = product.ingredients;
+    detected.syntheticFragrances = detectSyntheticFragrances(text).map((name) => ({ displayName: name }));
+    detected.parabens = detectParabens(text).map((name) => ({ displayName: name }));
+    detected.pfas = detectPFAS(text).map((name) => ({ displayName: name }));
+    detected.sulfates = detectSulfates(text).map((name) => ({ displayName: name }));
   }
 
   return detected;

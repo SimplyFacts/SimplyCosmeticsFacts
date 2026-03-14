@@ -22,7 +22,7 @@ export function AccessibilitySection({ largeFontDefault, onToggleLargeFont }) {
           iconColor="#10B981"
           iconBackgroundColor="#F3F4F6"
           title="Large Text by Default"
-          description="Always show ingredients and nutrition info in larger text"
+          description="Always show ingredients and product info in larger text"
           value={largeFontDefault}
           onValueChange={onToggleLargeFont}
           trackColorTrue="#86EFAC"

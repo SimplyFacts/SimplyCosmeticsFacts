@@ -20,13 +20,15 @@ export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const {
     largeFontDefault,
-    showArtificialIngredients,
-    showArtificialColors,
-    showSweeteners,
+    showSyntheticFragrances,
+    showParabens,
+    showPFAS,
+    showSulfates,
     handleToggleLargeFont,
-    handleToggleArtificialIngredients,
-    handleToggleArtificialColors,
-    handleToggleSweeteners,
+    handleToggleSyntheticFragrances,
+    handleToggleParabens,
+    handleTogglePFAS,
+    handleToggleSulfates,
   } = useSettings();
 
   return (
@@ -48,12 +50,14 @@ export default function SettingsScreen() {
         />
 
         <ProductInformationSection
-          showArtificialIngredients={showArtificialIngredients}
-          showArtificialColors={showArtificialColors}
-          showSweeteners={showSweeteners}
-          onToggleArtificialIngredients={handleToggleArtificialIngredients}
-          onToggleArtificialColors={handleToggleArtificialColors}
-          onToggleSweeteners={handleToggleSweeteners}
+          showSyntheticFragrances={showSyntheticFragrances}
+          showParabens={showParabens}
+          showPFAS={showPFAS}
+          showSulfates={showSulfates}
+          onToggleSyntheticFragrances={handleToggleSyntheticFragrances}
+          onToggleParabens={handleToggleParabens}
+          onTogglePFAS={handleTogglePFAS}
+          onToggleSulfates={handleToggleSulfates}
         />
 
         <DataManagementSection

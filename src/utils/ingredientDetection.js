@@ -471,6 +471,91 @@ export function detectArtificialSweeteners(ingredientsText) {
   return findMatches(ingredientsText, artificialSweetenerPatterns);
 }
 
+// Synthetic fragrance patterns
+const SYNTHETIC_FRAGRANCE_PATTERNS = [
+  { pattern: /\bfragrance\b/gi, name: "Fragrance" },
+  { pattern: /\bparfum\b/gi, name: "Parfum" },
+  { pattern: /\bperfume\b/gi, name: "Perfume" },
+  { pattern: /synthetic\s+fragrance/gi, name: "Synthetic Fragrance" },
+  { pattern: /artificial\s+fragrance/gi, name: "Artificial Fragrance" },
+  { pattern: /\blinalool\b/gi, name: "Linalool" },
+  { pattern: /\blimonene\b/gi, name: "Limonene" },
+  { pattern: /\bgeraniol\b/gi, name: "Geraniol" },
+  { pattern: /\beugenol\b/gi, name: "Eugenol" },
+  { pattern: /\bcinnamal\b/gi, name: "Cinnamal" },
+  { pattern: /\bcoumarin\b/gi, name: "Coumarin" },
+  { pattern: /\bbenzyl\s+alcohol\b/gi, name: "Benzyl Alcohol" },
+  { pattern: /\bbenzyl\s+benzoate\b/gi, name: "Benzyl Benzoate" },
+  { pattern: /\bbenzyl\s+cinnamate\b/gi, name: "Benzyl Cinnamate" },
+  { pattern: /\bbenzyl\s+salicylate\b/gi, name: "Benzyl Salicylate" },
+  { pattern: /\bcinnamyl\s+alcohol\b/gi, name: "Cinnamyl Alcohol" },
+  { pattern: /\bhydroxycitronellal\b/gi, name: "Hydroxycitronellal" },
+  { pattern: /\bisoeugenol\b/gi, name: "Isoeugenol" },
+  { pattern: /\bamyl\s+cinnamal\b/gi, name: "Amyl Cinnamal" },
+  { pattern: /\bmusk\b/gi, name: "Musk" },
+  { pattern: /\bnitro\s+musk/gi, name: "Nitro Musk" },
+  { pattern: /\bpolycyclic\s+musk/gi, name: "Polycyclic Musk" },
+];
+
+// Paraben patterns
+const PARABEN_PATTERNS = [
+  { pattern: /\bparabens?\b/gi, name: "Parabens" },
+  { pattern: /\bmethylparaben\b/gi, name: "Methylparaben" },
+  { pattern: /\bpropylparaben\b/gi, name: "Propylparaben" },
+  { pattern: /\bbutylparaben\b/gi, name: "Butylparaben" },
+  { pattern: /\bethylparaben\b/gi, name: "Ethylparaben" },
+  { pattern: /\bisobutylparaben\b/gi, name: "Isobutylparaben" },
+  { pattern: /\bisopropylparaben\b/gi, name: "Isopropylparaben" },
+  { pattern: /\bbenzylparaben\b/gi, name: "Benzylparaben" },
+  { pattern: /\bheptylparaben\b/gi, name: "Heptylparaben" },
+];
+
+// PFAS (per- and polyfluoroalkyl substances) patterns
+const PFAS_PATTERNS = [
+  { pattern: /\bptfe\b/gi, name: "PTFE" },
+  { pattern: /polytetrafluoroethylene/gi, name: "Polytetrafluoroethylene (PTFE)" },
+  { pattern: /perfluoro/gi, name: "Perfluoro Compound" },
+  { pattern: /\bpfas\b/gi, name: "PFAS" },
+  { pattern: /\bpfoa\b/gi, name: "PFOA" },
+  { pattern: /\bpfos\b/gi, name: "PFOS" },
+  { pattern: /fluoropolymer/gi, name: "Fluoropolymer" },
+  { pattern: /teflon/gi, name: "Teflon" },
+  { pattern: /fluoro(?:carbon|chemical)/gi, name: "Fluorochemical" },
+];
+
+// Sulfate patterns
+const SULFATE_PATTERNS = [
+  { pattern: /sodium\s+lauryl\s+sulfate/gi, name: "Sodium Lauryl Sulfate (SLS)" },
+  { pattern: /\bsls\b/gi, name: "SLS" },
+  { pattern: /sodium\s+laureth\s+sulfate/gi, name: "Sodium Laureth Sulfate (SLES)" },
+  { pattern: /\bsles\b/gi, name: "SLES" },
+  { pattern: /ammonium\s+lauryl\s+sulfate/gi, name: "Ammonium Lauryl Sulfate" },
+  { pattern: /ammonium\s+laureth\s+sulfate/gi, name: "Ammonium Laureth Sulfate" },
+  { pattern: /sodium\s+myreth\s+sulfate/gi, name: "Sodium Myreth Sulfate" },
+  { pattern: /sodium\s+pareth\s+sulfate/gi, name: "Sodium Pareth Sulfate" },
+  { pattern: /sodium\s+coco\s+sulfate/gi, name: "Sodium Coco Sulfate" },
+  { pattern: /tea[-\s]lauryl\s+sulfate/gi, name: "TEA-Lauryl Sulfate" },
+  { pattern: /tea[-\s]laureth\s+sulfate/gi, name: "TEA-Laureth Sulfate" },
+  { pattern: /\blauryl\s+sulfate\b/gi, name: "Lauryl Sulfate" },
+];
+
+// Helper functions for new cosmetics categories
+export function detectSyntheticFragrances(ingredientsText) {
+  return findMatches(ingredientsText, SYNTHETIC_FRAGRANCE_PATTERNS);
+}
+
+export function detectParabens(ingredientsText) {
+  return findMatches(ingredientsText, PARABEN_PATTERNS);
+}
+
+export function detectPFAS(ingredientsText) {
+  return findMatches(ingredientsText, PFAS_PATTERNS);
+}
+
+export function detectSulfates(ingredientsText) {
+  return findMatches(ingredientsText, SULFATE_PATTERNS);
+}
+
 // Helper function to check if an ingredient is an artificial sweetener
 export function isArtificialSweetener(ingredient) {
   if (!ingredient) return false;

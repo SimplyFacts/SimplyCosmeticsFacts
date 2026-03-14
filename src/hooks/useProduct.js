@@ -100,6 +100,10 @@ export function useProduct(barcode) {
         sweeteners: [],
         artificialColors: [],
         artificialIngredients: [],
+        syntheticFragrances: [],
+        parabens: [],
+        pfas: [],
+        sulfates: [],
       };
     return detectAllIngredients(product);
   }, [product]);
