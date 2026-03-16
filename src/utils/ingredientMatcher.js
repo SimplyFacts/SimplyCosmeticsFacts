@@ -12,6 +12,74 @@ import {
   detectSulfates,
 } from "./ingredientDetection";
 
+// OBF taxonomy IDs for each cosmetics category
+const SYNTHETIC_FRAGRANCE_IDS = new Set([
+  "en:parfum", "en:fragrance", "en:linalool", "en:limonene", "en:geraniol",
+  "en:eugenol", "en:amyl-cinnamal", "en:cinnamal", "en:coumarin",
+  "en:benzyl-alcohol", "en:benzyl-benzoate", "en:benzyl-cinnamate",
+  "en:benzyl-salicylate", "en:cinnamyl-alcohol", "en:hydroxycitronellal",
+  "en:isoeugenol", "en:citronellol", "en:citral", "en:farnesol",
+  "en:hexyl-cinnamal", "en:alpha-isomethyl-ionone", "en:anise-alcohol",
+  "en:methyl-2-octynoate", "en:lilial", "en:lyral",
+]);
+
+const PARABEN_IDS = new Set([
+  "en:methylparaben", "en:ethylparaben", "en:propylparaben",
+  "en:butylparaben", "en:isobutylparaben", "en:isopropylparaben",
+  "en:benzylparaben", "en:heptylparaben",
+]);
+
+const PFAS_IDS = new Set([
+  "en:ptfe", "en:polytetrafluoroethylene", "en:perfluorooctanoic-acid",
+  "en:perfluorooctane-sulfonate", "en:fluoropolymer",
+]);
+
+const SULFATE_IDS = new Set([
+  "en:sodium-lauryl-sulfate", "en:sodium-laureth-sulfate",
+  "en:ammonium-lauryl-sulfate", "en:ammonium-laureth-sulfate",
+  "en:sodium-myreth-sulfate", "en:sodium-coco-sulfate",
+  "en:tea-lauryl-sulfate", "en:lauryl-sulfate",
+  "en:sodium-cetearyl-sulfate", "en:sodium-pareth-sulfate",
+]);
+
+// Convert a taxonomy ID to a display name: 'en:sodium-lauryl-sulfate' → 'Sodium Lauryl Sulfate'
+function taxonomyIdToDisplayName(id) {
+  return id
+    .replace(/^[a-z]+:/, "")
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+// Match taxonomy IDs against a set, return display names
+function detectByTaxonomyIds(ingredientsTags, idSet) {
+  if (!Array.isArray(ingredientsTags) || ingredientsTags.length === 0) return [];
+  const seen = new Set();
+  const results = [];
+  for (const tag of ingredientsTags) {
+    if (idSet.has(tag) && !seen.has(tag)) {
+      seen.add(tag);
+      results.push({ displayName: taxonomyIdToDisplayName(tag) });
+    }
+  }
+  return results;
+}
+
+// Merge taxonomy results with regex fallback, deduplicating by normalized display name
+function mergeWithFallback(taxonomyResults, regexNames) {
+  const seen = new Set(
+    taxonomyResults.map((r) => r.displayName.toLowerCase())
+  );
+  const merged = [...taxonomyResults];
+  for (const name of regexNames) {
+    if (!seen.has(name.toLowerCase())) {
+      seen.add(name.toLowerCase());
+      merged.push({ displayName: name });
+    }
+  }
+  return merged;
+}
+
 // OPTIMIZATION: Cache ingredient database at module level
 const CACHED_INGREDIENTS = getAllIngredients();
 
@@ -118,14 +186,26 @@ export function detectAllIngredients(product) {
     });
   }
 
-  // Source 4: Cosmetics-specific pattern detection on ingredients text
-  if (product.ingredients) {
-    const text = product.ingredients;
-    detected.syntheticFragrances = detectSyntheticFragrances(text).map((name) => ({ displayName: name }));
-    detected.parabens = detectParabens(text).map((name) => ({ displayName: name }));
-    detected.pfas = detectPFAS(text).map((name) => ({ displayName: name }));
-    detected.sulfates = detectSulfates(text).map((name) => ({ displayName: name }));
-  }
+  // Source 4: Taxonomy ID matching (precise) with regex fallback for unrecognized ingredients
+  const ingredientsTags = product.ingredients_tags || [];
+  const text = product.ingredients || "";
+
+  detected.syntheticFragrances = mergeWithFallback(
+    detectByTaxonomyIds(ingredientsTags, SYNTHETIC_FRAGRANCE_IDS),
+    detectSyntheticFragrances(text),
+  );
+  detected.parabens = mergeWithFallback(
+    detectByTaxonomyIds(ingredientsTags, PARABEN_IDS),
+    detectParabens(text),
+  );
+  detected.pfas = mergeWithFallback(
+    detectByTaxonomyIds(ingredientsTags, PFAS_IDS),
+    detectPFAS(text),
+  );
+  detected.sulfates = mergeWithFallback(
+    detectByTaxonomyIds(ingredientsTags, SULFATE_IDS),
+    detectSulfates(text),
+  );
 
   return detected;
 }
