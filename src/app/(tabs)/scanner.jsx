@@ -433,7 +433,7 @@ export default function ScannerScreen() {
                         fontWeight: "600",
                       }}
                     >
-                      Product not found
+                      Not in database
                     </Text>
                   </>
                 ) : (

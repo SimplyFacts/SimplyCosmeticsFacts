@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, ActivityIndicator, Alert } from "react-native";
+import { View, Text, ScrollView, ActivityIndicator, Alert, TouchableOpacity, Linking } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
@@ -138,13 +138,24 @@ export default function ProductDetailScreen() {
           backgroundColor: "#fff",
           justifyContent: "center",
           alignItems: "center",
-          paddingHorizontal: 24,
+          paddingHorizontal: 32,
         }}
       >
         <StatusBar style="dark" />
-        <Text style={{ fontSize: 18, color: "#6B7280" }}>
-          {error || "Product not found"}
+        <Text style={{ fontSize: 18, color: "#6B7280", textAlign: "center", marginBottom: 8 }}>
+          This product isn't in the Open Beauty Facts database yet.
         </Text>
+        <TouchableOpacity
+          onPress={() =>
+            Linking.openURL(
+              `https://world.openbeautyfacts.org/product/${barcode}`
+            )
+          }
+        >
+          <Text style={{ fontSize: 16, color: "#0D9488", fontWeight: "600", textAlign: "center" }}>
+            Add it on openbeautyfacts.org →
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
