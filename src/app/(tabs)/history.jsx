@@ -98,9 +98,9 @@ export default function HistoryScreen() {
       ) : history.length === 0 ? (
         <View style={styles.emptyState}>
           <Clock size={64} color="#D1D5DB" style={styles.emptyIcon} />
-          <Text style={styles.emptyTitle}>No Scan History</Text>
+          <Text style={styles.emptyTitle}>Nothing scanned yet</Text>
           <Text style={styles.emptySubtitle}>
-            Your scanned products will appear here
+            Cosmetics you scan will appear here so you can revisit them anytime
           </Text>
         </View>
       ) : (

@@ -37,7 +37,7 @@ export function useScanHistory() {
   });
 
   return {
-    history: historyQuery.data || [],
+    history: Array.isArray(historyQuery.data) ? historyQuery.data : [],
     isLoading: historyQuery.isPending && !historyQuery.isError,
     error: historyQuery.error,
     clearHistory: clearMutation.mutate,
