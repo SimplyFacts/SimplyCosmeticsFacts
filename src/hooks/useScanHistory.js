@@ -38,7 +38,7 @@ export function useScanHistory() {
 
   return {
     history: historyQuery.data || [],
-    isLoading: historyQuery.isLoading,
+    isLoading: historyQuery.isPending && !historyQuery.isError,
     error: historyQuery.error,
     clearHistory: clearMutation.mutate,
     isClearing: clearMutation.isPending,

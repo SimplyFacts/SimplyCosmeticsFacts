@@ -97,7 +97,6 @@ export function useProduct(barcode) {
   const detectedIngredients = useMemo(() => {
     if (!product)
       return {
-        sweeteners: [],
         artificialColors: [],
         artificialIngredients: [],
         syntheticFragrances: [],
@@ -110,7 +109,7 @@ export function useProduct(barcode) {
 
   return {
     product: productQuery.data,
-    isLoading: productQuery.isLoading,
+    isLoading: productQuery.isPending && !productQuery.isError,
     error: productQuery.error?.message || null, // Convert Error object to string
     refetch: productQuery.refetch,
     // Cached, pre-computed data for better performance
