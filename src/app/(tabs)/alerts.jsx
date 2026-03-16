@@ -12,8 +12,6 @@ import { useAlertsStore } from "@/stores/alertsStore";
 import { getPresetCategories, isPresetIngredient } from "@/utils/alertPresets";
 import { PresetCategory } from "@/components/alerts/PresetCategory";
 import { AlertItem } from "@/components/alerts/AlertItem";
-import { DietaryProfilesTile } from "@/components/alerts/DietaryProfilesTile";
-import { LifestyleDietsTile } from "@/components/alerts/LifestyleDietsTile";
 import { Disclaimer } from "@/components/alerts/Disclaimer";
 import { ManualAddForm } from "@/components/alerts/ManualAddForm";
 import { ConfirmationModal } from "@/components/alerts/ConfirmationModal";
@@ -91,19 +89,7 @@ export default function AlertsScreen() {
           </View>
 
           <View style={styles.tilesGrid}>
-            {/* Dietary Profiles Expandable Tile */}
-            <DietaryProfilesTile
-              alerts={alerts}
-              onProfilePress={handleProfilePress}
-            />
-
-            {/* Lifestyle Diets Expandable Tile */}
-            <LifestyleDietsTile
-              alerts={alerts}
-              onProfilePress={handleProfilePress}
-            />
-
-            {presetCategories.map((category) => (
+{presetCategories.map((category) => (
               <PresetCategory
                 key={category.key}
                 category={category}

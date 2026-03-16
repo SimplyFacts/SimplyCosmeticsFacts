@@ -19,12 +19,10 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { AlertsSection } from "@/components/product/AlertsSection";
 import { AllergensSection } from "@/components/product/AllergensSection";
 import { ArtificialColorsSection } from "@/components/product/ArtificialColorsSection";
-import { SweetenersSection } from "@/components/product/SweetenersSection";
 import { SyntheticFragrancesSection } from "@/components/product/SyntheticFragrancesSection";
 import { ParabensSection } from "@/components/product/ParabensSection";
 import { PFASSection } from "@/components/product/PFASSection";
 import { SulfatesSection } from "@/components/product/SulfatesSection";
-import { NutritionalInfoSection } from "@/components/product/NutritionalInfoSection";
 import { FullIngredientsSection } from "@/components/product/FullIngredientsSection";
 import { OpenBeautyFactsAttribution } from "@/components/product/OpenBeautyFactsAttribution";
 import { DisclaimerFooter } from "@/components/product/DisclaimerFooter";
@@ -71,8 +69,6 @@ export default function ProductDetailScreen() {
     if (!product) return [];
     return matchAlerts(alerts, ingredientsText, product);
   }, [alerts, ingredientsText, product]);
-
-  const nutritionalInfo = product?.nutritional_info || {};
 
   const loadPreferences = async () => {
     const fontSizePref = await loadFontSizePreference();
@@ -281,14 +277,7 @@ export default function ProductDetailScreen() {
 
           {!hasNoIngredients && (
             <>
-              <SectionErrorBoundary sectionName="Sweeteners">
-                <SweetenersSection
-                  sweeteners={detectedIngredients.sweeteners}
-                  fontSize={fontSize}
-                />
-              </SectionErrorBoundary>
-
-              <SectionErrorBoundary sectionName="Artificial colors">
+<SectionErrorBoundary sectionName="Artificial colors">
                 <ArtificialColorsSection
                   colors={detectedIngredients.artificialColors}
                   fontSize={fontSize}
@@ -348,16 +337,7 @@ export default function ProductDetailScreen() {
           />
         </SectionErrorBoundary>
 
-        <View style={{ paddingHorizontal: 24 }}>
-          <SectionErrorBoundary sectionName="Nutritional info">
-            <NutritionalInfoSection
-              nutritionalInfo={nutritionalInfo}
-              fontSize={fontSize}
-            />
-          </SectionErrorBoundary>
-        </View>
-
-        <OpenBeautyFactsAttribution
+<OpenBeautyFactsAttribution
           barcode={product.barcode}
           fontSize={fontSize}
         />
