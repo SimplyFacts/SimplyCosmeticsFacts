@@ -42,6 +42,7 @@ export async function GET(request) {
       crossContaminationWarnings: [],
       additives_tags: product.additives_tags || [],
       ingredients_analysis_tags: product.ingredients_analysis_tags || [],
+      ingredients_tags: product.ingredients_tags || [],
       nutritional_info: {
         energy_kcal: product.nutriments?.["energy-kcal"] || null,
         fat: product.nutriments?.fat || null,
