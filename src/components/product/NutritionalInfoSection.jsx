@@ -1,4 +1,5 @@
-import { View, Text } from "react-native";
+import { useMemo } from "react";
+import { View, Text, StyleSheet } from "react-native";
 import { NutritionRow } from "./NutritionRow";
 import { getFontSizes } from "@/utils/productPreferences";
 import { CollapsibleSection } from "./CollapsibleSection";
@@ -9,10 +10,13 @@ export function NutritionalInfoSection({
 }) {
   const fonts = getFontSizes(fontSize);
 
-  // Check if we have any nutrition data
-  const hasNutritionData = Object.keys(nutritionalInfo).some(
-    (key) =>
-      nutritionalInfo[key] !== null && nutritionalInfo[key] !== undefined,
+  const hasNutritionData = useMemo(
+    () =>
+      Object.keys(nutritionalInfo).some(
+        (key) =>
+          nutritionalInfo[key] !== null && nutritionalInfo[key] !== undefined,
+      ),
+    [nutritionalInfo],
   );
 
   if (!hasNutritionData) {
@@ -28,13 +32,7 @@ export function NutritionalInfoSection({
       backgroundColor="#F0FDF4"
       color="#10B981"
     >
-      <View
-        style={{
-          backgroundColor: "#F9FAFB",
-          borderRadius: 12,
-          padding: 16,
-        }}
-      >
+      <View style={styles.container}>
         {nutritionalInfo.energy_kcal && (
           <NutritionRow
             label="Energy"
@@ -95,3 +93,11 @@ export function NutritionalInfoSection({
     </CollapsibleSection>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#F9FAFB",
+    borderRadius: 12,
+    padding: 16,
+  },
+});

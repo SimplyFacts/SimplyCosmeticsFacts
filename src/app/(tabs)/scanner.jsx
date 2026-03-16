@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, useMemo } from "react";
 import {
   View,
   Text,
@@ -6,6 +6,8 @@ import {
   ActivityIndicator,
   Dimensions,
   Linking,
+  InteractionManager,
+  StyleSheet,
 } from "react-native";
 import { Image } from "expo-image";
 import { CameraView, useCameraPermissions } from "expo-camera";
@@ -30,6 +32,22 @@ import {
 } from "@/utils/responsiveScale";
 
 
+// Static barcode types — module-level constant so CameraView never gets a new array reference
+const BARCODE_TYPES = ["ean13", "ean8", "upc_a", "upc_e", "code128", "code39"];
+
+// Static scan-line base style computed once
+const scanLineBaseStyle = {
+  position: "absolute",
+  left: 0,
+  right: 0,
+  height: scaleModerate(3),
+  backgroundColor: "#10B981",
+  shadowColor: "#10B981",
+  shadowOffset: { width: 0, height: 0 },
+  shadowOpacity: 0.8,
+  shadowRadius: scaleModerate(8),
+};
+
 // Scan line component that animates when shown
 function ScanLine() {
   const scanLineY = useSharedValue(0);
@@ -51,24 +69,7 @@ function ScanLine() {
     };
   });
 
-  return (
-    <Animated.View
-      style={[
-        {
-          position: "absolute",
-          left: 0,
-          right: 0,
-          height: scaleModerate(3),
-          backgroundColor: "#10B981",
-          shadowColor: "#10B981",
-          shadowOffset: { width: 0, height: 0 },
-          shadowOpacity: 0.8,
-          shadowRadius: scaleModerate(8),
-        },
-        scanLineStyle,
-      ]}
-    />
-  );
+  return <Animated.View style={[scanLineBaseStyle, scanLineStyle]} />;
 }
 
 export default function ScannerScreen() {
@@ -82,13 +83,20 @@ export default function ScannerScreen() {
   const cameraRef = useRef(null);
   const hasNavigatedRef = useRef(false);
 
-  const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
-
-  // Scanning frame dimensions - now responsive
-  const frameWidth = scaleWidth(280);
-  const frameHeight = scaleHeight(180);
-  const frameTop = screenHeight / 2 - frameHeight / 2;
-  const frameLeft = screenWidth / 2 - frameWidth / 2;
+  // Memoized frame geometry — screen dimensions don't change between renders
+  const { screenWidth, screenHeight, frameWidth, frameHeight, frameTop, frameLeft } = useMemo(() => {
+    const { width, height } = Dimensions.get("window");
+    const fw = scaleWidth(280);
+    const fh = scaleHeight(180);
+    return {
+      screenWidth: width,
+      screenHeight: height,
+      frameWidth: fw,
+      frameHeight: fh,
+      frameTop: height / 2 - fh / 2,
+      frameLeft: width / 2 - fw / 2,
+    };
+  }, []);
 
   const handleBarcodeScanned = useCallback(
     async ({ data }) => {
@@ -106,7 +114,9 @@ export default function ScannerScreen() {
       setProcessingState("success");
 
       setTimeout(() => {
-        router.replace(`/(tabs)/product/${data}`);
+        InteractionManager.runAfterInteractions(() => {
+          router.replace(`/(tabs)/product/${data}`);
+        });
       }, 600);
     },
     [isProcessing, router],
@@ -195,16 +205,7 @@ export default function ScannerScreen() {
           ref={cameraRef}
           style={{ flex: 1 }}
           facing="back"
-          barcodeScannerSettings={{
-            barcodeTypes: [
-              "ean13",
-              "ean8",
-              "upc_a",
-              "upc_e",
-              "code128",
-              "code39",
-            ],
-          }}
+          barcodeScannerSettings={{ barcodeTypes: BARCODE_TYPES }}
           onBarcodeScanned={handleBarcodeScanned}
         >
           {/* White overlay masks - cover everything except scanning frame */}

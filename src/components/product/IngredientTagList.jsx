@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { getFontSizes } from "@/utils/productPreferences";
 
 export function IngredientTagList({
@@ -12,38 +12,24 @@ export function IngredientTagList({
 
   if (items.length === 0) {
     return (
-      <Text style={{ fontSize: fonts.noneListedText, color: "#6B7280" }}>
+      <Text style={[styles.noneText, { fontSize: fonts.noneListedText }]}>
         None listed
       </Text>
     );
   }
 
   return (
-    <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
+    <View style={styles.row}>
       {items.map((item, index) => {
-        // Handle both string items and object items with displayName
         const displayText =
           typeof item === "string" ? item : item.displayName || item;
 
         return (
           <View
             key={index}
-            style={{
-              backgroundColor,
-              borderWidth: 1,
-              borderColor,
-              paddingHorizontal: 12,
-              paddingVertical: 8,
-              borderRadius: 8,
-            }}
+            style={[styles.chip, { backgroundColor, borderColor }]}
           >
-            <Text
-              style={{
-                fontSize: fonts.tagText,
-                color: textColor,
-                fontWeight: "500",
-              }}
-            >
+            <Text style={[styles.chipText, { fontSize: fonts.tagText, color: textColor }]}>
               {displayText}
             </Text>
           </View>
@@ -52,3 +38,23 @@ export function IngredientTagList({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  noneText: {
+    color: "#6B7280",
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+  },
+  chip: {
+    borderWidth: 1,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+  },
+  chipText: {
+    fontWeight: "500",
+  },
+});

@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, useMemo } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { ChevronDown, ChevronUp } from "lucide-react-native";
 import { isPresetAlreadyAdded } from "@/utils/alertPresets";
@@ -8,10 +8,14 @@ export const PresetCategory = memo(
   ({ category, alerts, onAddPreset, onDeselectPreset }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    // Count selected items in this category
-    const selectedCount = category.items.filter((preset) =>
-      isPresetAlreadyAdded(preset.name, alerts),
-    ).length;
+    // Count selected items in this category — only recompute when alerts change
+    const selectedCount = useMemo(
+      () =>
+        category.items.filter((preset) =>
+          isPresetAlreadyAdded(preset.name, alerts),
+        ).length,
+      [category.items, alerts],
+    );
 
     return (
       <View style={[styles.presetCategory, isExpanded && { width: "100%" }]}>

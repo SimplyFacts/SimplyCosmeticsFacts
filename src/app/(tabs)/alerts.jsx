@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useCallback } from "react";
 import {
   View,
   Text,
@@ -27,12 +27,13 @@ export default function AlertsScreen() {
   // Use global alerts store
   const { alerts, isLoading, fetchAlerts, shouldRefresh } = useAlertsStore();
 
-  // Get preset categories
-  const presetCategories = getPresetCategories();
+  // Get preset categories — stable reference, only recompute if alerts change
+  const presetCategories = useMemo(() => getPresetCategories(), []);
 
   // Filter to get only custom alerts (not from presets)
-  const customAlerts = alerts.filter(
-    (alert) => !isPresetIngredient(alert.ingredient_name),
+  const customAlerts = useMemo(
+    () => alerts.filter((alert) => !isPresetIngredient(alert.ingredient_name)),
+    [alerts],
   );
 
   // Fetch alerts on mount or when they need refreshing

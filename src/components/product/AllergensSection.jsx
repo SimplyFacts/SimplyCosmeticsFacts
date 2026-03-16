@@ -1,29 +1,17 @@
 import { View, Text } from "react-native";
+import { useMemo } from "react";
 import { getFontSizes } from "@/utils/productPreferences";
 import { CollapsibleSection } from "./CollapsibleSection";
 
-export function AllergensSection({
-  allergens,
-  traces,
-  crossContaminationWarnings,
-  fontSize = "medium",
-}) {
-  const fonts = getFontSizes(fontSize);
+function formatAllergenText(allergen) {
+  const text = allergen.replace("en:", "");
+  return text
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 
-  // Helper function to format allergen text
-  const formatAllergenText = (allergen) => {
-    // Remove the "en:" prefix
-    const text = allergen.replace("en:", "");
-
-    // Replace hyphens with spaces and title case each word
-    return text
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
-
-  // Helper function to deduplicate allergens
-  const deduplicateAllergens = (allergenList) => {
+function deduplicateAllergens(allergenList) {
     if (!allergenList || allergenList.length === 0) return [];
 
     // Map to track canonical forms
@@ -115,11 +103,19 @@ export function AllergensSection({
     });
 
     return Array.from(canonicalMap.values());
-  };
+}
 
-  // Deduplicate allergens and traces
-  const uniqueAllergens = deduplicateAllergens(allergens);
-  const uniqueTraces = deduplicateAllergens(traces);
+export function AllergensSection({
+  allergens,
+  traces,
+  crossContaminationWarnings,
+  fontSize = "medium",
+}) {
+  const fonts = getFontSizes(fontSize);
+
+  // Deduplicate allergens and traces — only recompute when inputs change
+  const uniqueAllergens = useMemo(() => deduplicateAllergens(allergens), [allergens]);
+  const uniqueTraces = useMemo(() => deduplicateAllergens(traces), [traces]);
 
   const hasAllergens = uniqueAllergens && uniqueAllergens.length > 0;
   const hasTraces = uniqueTraces && uniqueTraces.length > 0;

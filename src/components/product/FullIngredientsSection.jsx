@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { getFontSizes } from "@/utils/productPreferences";
 import { CollapsibleSection } from "./CollapsibleSection";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   parseIngredients,
@@ -139,10 +139,24 @@ export function FullIngredientsSection({
 
   const hasIngredients = ingredients && ingredients.trim().length > 0;
 
-  // Check if there are any flagged ingredients
-  const hasAnyAlerts = parsedIngredients.some((ing) => hasAlert(ing, alerts));
-  const hasAnyAllergens = parsedIngredients.some((ing) =>
-    matchesProductAllergen(ing, allergens),
+  // Compute alert/allergen status for each ingredient once, not on every render
+  const ingredientStatuses = useMemo(
+    () =>
+      parsedIngredients.map((ingredient) => ({
+        ingredient,
+        alert: hasAlert(ingredient, alerts),
+        isAllergen: matchesProductAllergen(ingredient, allergens),
+      })),
+    [parsedIngredients, alerts, allergens],
+  );
+
+  const hasAnyAlerts = useMemo(
+    () => ingredientStatuses.some((s) => s.alert),
+    [ingredientStatuses],
+  );
+  const hasAnyAllergens = useMemo(
+    () => ingredientStatuses.some((s) => s.isAllergen),
+    [ingredientStatuses],
   );
 
   return (
@@ -177,24 +191,16 @@ export function FullIngredientsSection({
                   gap: 8,
                 }}
               >
-                {parsedIngredients.map((ingredient, index) => {
-                  const alert = hasAlert(ingredient, alerts);
-                  const isAllergen = matchesProductAllergen(
-                    ingredient,
-                    allergens,
-                  );
-
-                  return (
-                    <IngredientItem
-                      key={index}
-                      ingredient={ingredient}
-                      alert={alert}
-                      isAllergen={isAllergen}
-                      fontSize={fonts.ingredientsText}
-                      onPress={() => handleIngredientPress(ingredient)}
-                    />
-                  );
-                })}
+                {ingredientStatuses.map(({ ingredient, alert, isAllergen }) => (
+                  <IngredientItem
+                    key={ingredient}
+                    ingredient={ingredient}
+                    alert={alert}
+                    isAllergen={isAllergen}
+                    fontSize={fonts.ingredientsText}
+                    onPress={() => handleIngredientPress(ingredient)}
+                  />
+                ))}
               </View>
             </>
           ) : (

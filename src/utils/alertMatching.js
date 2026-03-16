@@ -3,16 +3,46 @@ import {
   ADDITIVE_CATEGORIES,
 } from "./additiveCategories";
 
+// Cache compiled regexes to avoid recreating them on every call
+const regexCache = new Map();
+
 // Check for whole-word matches to avoid partial hits
 // e.g. "corn" should NOT match "acorn" or "unicorn"
 function matchesWholeWord(text, term) {
-  const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const regex = new RegExp(
-    `(?:^|[\\s,;()\\[\\]/\\-])${escaped}(?:$|[\\s,;()\\[\\]/\\-])`,
-    "i",
-  );
+  let regex = regexCache.get(term);
+  if (!regex) {
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    regex = new RegExp(
+      `(?:^|[\\s,;()\\[\\]/\\-])${escaped}(?:$|[\\s,;()\\[\\]/\\-])`,
+      "i",
+    );
+    regexCache.set(term, regex);
+  }
   return regex.test(text);
 }
+
+// Module-level constant — not recreated on every matchAlerts call
+const CATEGORY_MAPPING = {
+  "dairy products": "dairy",
+  dairy: "dairy",
+  "tree nuts": "treeNuts",
+  peanuts: "peanuts",
+  peanut: "peanuts",
+  gluten: "gluten",
+  "gluten/wheat": "gluten",
+  shellfish: "shellfish",
+  fish: "fish",
+  eggs: "eggs",
+  egg: "eggs",
+  soy: "soy",
+  corn: "corn",
+  "artificial colors": "colors",
+  "artificial color": "colors",
+  preservatives: "preservatives",
+  preservative: "preservatives",
+  "flavor enhancers": "flavorEnhancers",
+  "flavor enhancer": "flavorEnhancers",
+};
 
 export function matchAlerts(alerts, ingredientsText, product) {
   // Use Open Beauty Facts additives_tags for more comprehensive sweetener detection
@@ -36,30 +66,7 @@ export function matchAlerts(alerts, ingredientsText, product) {
       return artificialSweetenersFound.length > 0;
     }
 
-    // Special case: category-wide alerts (e.g., "dairy products", "tree nuts", etc.)
-    const categoryMapping = {
-      "dairy products": "dairy",
-      dairy: "dairy",
-      "tree nuts": "treeNuts",
-      peanuts: "peanuts",
-      peanut: "peanuts",
-      gluten: "gluten",
-      "gluten/wheat": "gluten",
-      shellfish: "shellfish",
-      fish: "fish",
-      eggs: "eggs",
-      egg: "eggs",
-      soy: "soy",
-      corn: "corn",
-      "artificial colors": "colors",
-      "artificial color": "colors",
-      preservatives: "preservatives",
-      preservative: "preservatives",
-      "flavor enhancers": "flavorEnhancers",
-      "flavor enhancer": "flavorEnhancers",
-    };
-
-    const categoryKey = categoryMapping[alertName];
+    const categoryKey = CATEGORY_MAPPING[alertName];
 
     if (categoryKey && ADDITIVE_CATEGORIES[categoryKey]) {
       // Check if any ingredient in the category is present

@@ -1,6 +1,24 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { getFontSizes } from "@/utils/productPreferences";
 import { CollapsibleSection } from "./CollapsibleSection";
+
+const SWEETENER_THEME = {
+  artificial: {
+    backgroundColor: "#FEE2E2",
+    borderColor: "#FCA5A5",
+    textColor: "#DC2626",
+  },
+  natural: {
+    backgroundColor: "#DBEAFE",
+    borderColor: "#93C5FD",
+    textColor: "#1D4ED8",
+  },
+  sugarAlcohol: {
+    backgroundColor: "#E0E7FF",
+    borderColor: "#A5B4FC",
+    textColor: "#4338CA",
+  },
+};
 
 export function SweetenersSection({ sweeteners = [], fontSize = "medium" }) {
   if (sweeteners.length === 0) return null;
@@ -20,42 +38,19 @@ export function SweetenersSection({ sweeteners = [], fontSize = "medium" }) {
       color={sweeteners.length > 0 ? "#EC4899" : "#6B7280"}
     >
       {sweeteners.length > 0 && (
-        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 6 }}>
+        <View style={styles.row}>
           {sweeteners.map((item, idx) => {
-            // Different colors for different types of sweeteners
-            let bgColor = "#FEE2E2"; // red for artificial
-            let borderColor = "#FCA5A5";
-            let textColor = "#DC2626";
-
-            if (item.subtype === "natural") {
-              bgColor = "#DBEAFE"; // blue for natural
-              borderColor = "#93C5FD";
-              textColor = "#1D4ED8";
-            } else if (item.subtype === "sugarAlcohol") {
-              bgColor = "#E0E7FF"; // indigo for sugar alcohols
-              borderColor = "#A5B4FC";
-              textColor = "#4338CA";
-            }
+            const theme = SWEETENER_THEME[item.subtype] ?? SWEETENER_THEME.artificial;
 
             return (
               <View
                 key={idx}
-                style={{
-                  backgroundColor: bgColor,
-                  paddingHorizontal: 12,
-                  paddingVertical: 8,
-                  borderRadius: 8,
-                  borderWidth: 1,
-                  borderColor: borderColor,
-                }}
+                style={[
+                  styles.chip,
+                  { backgroundColor: theme.backgroundColor, borderColor: theme.borderColor },
+                ]}
               >
-                <Text
-                  style={{
-                    fontSize: fonts.body,
-                    color: textColor,
-                    fontWeight: "500",
-                  }}
-                >
+                <Text style={[styles.chipText, { fontSize: fonts.body, color: theme.textColor }]}>
                   {item.displayName}
                 </Text>
               </View>
@@ -66,3 +61,20 @@ export function SweetenersSection({ sweeteners = [], fontSize = "medium" }) {
     </CollapsibleSection>
   );
 }
+
+const styles = StyleSheet.create({
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 6,
+  },
+  chip: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+    borderWidth: 1,
+  },
+  chipText: {
+    fontWeight: "500",
+  },
+});

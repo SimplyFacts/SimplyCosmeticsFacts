@@ -1,8 +1,33 @@
-import { useState } from "react";
+import { useState, useMemo, memo } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { ChevronDown, ChevronUp } from "lucide-react-native";
 import { DIETARY_PROFILES, getNewIngredients } from "@/utils/dietaryProfiles";
 import { DietaryProfileCard } from "./DietaryProfileCard";
+
+// Separated so the expensive new-count computation is memoized independently of expand/collapse
+const ProfileList = memo(function ProfileList({ alerts, onProfilePress }) {
+  const profilesWithCounts = useMemo(
+    () =>
+      DIETARY_PROFILES.map((profile) => ({
+        profile,
+        newCount: getNewIngredients(profile, alerts).length,
+      })),
+    [alerts],
+  );
+
+  return (
+    <View style={styles.profilesList}>
+      {profilesWithCounts.map(({ profile, newCount }) => (
+        <DietaryProfileCard
+          key={profile.key}
+          profile={profile}
+          newCount={newCount}
+          onPress={onProfilePress}
+        />
+      ))}
+    </View>
+  );
+});
 
 export function DietaryProfilesTile({ alerts, onProfilePress }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -30,19 +55,7 @@ export function DietaryProfilesTile({ alerts, onProfilePress }) {
       </TouchableOpacity>
 
       {isExpanded && (
-        <View style={styles.profilesList}>
-          {DIETARY_PROFILES.map((profile) => {
-            const newCount = getNewIngredients(profile, alerts).length;
-            return (
-              <DietaryProfileCard
-                key={profile.key}
-                profile={profile}
-                newCount={newCount}
-                onPress={onProfilePress}
-              />
-            );
-          })}
-        </View>
+        <ProfileList alerts={alerts} onProfilePress={onProfilePress} />
       )}
     </View>
   );

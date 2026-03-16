@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import {
   View,
   Text,
@@ -62,11 +62,14 @@ export default function HistoryScreen() {
     );
   };
 
-  const renderHistoryItem = ({ item }) => (
-    <HistoryItem
-      item={item}
-      onPress={() => router.push(`/(tabs)/product/${item.barcode}`)}
-    />
+  const renderHistoryItem = useCallback(
+    ({ item }) => (
+      <HistoryItem
+        item={item}
+        onPress={() => router.push(`/(tabs)/product/${item.barcode}`)}
+      />
+    ),
+    [router],
   );
 
   return (

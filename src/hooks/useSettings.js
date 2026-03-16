@@ -1,12 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+const DEFAULT_SETTINGS = {
+  largeFontDefault: false,
+  showSyntheticFragrances: true,
+  showParabens: true,
+  showPFAS: true,
+  showSulfates: true,
+};
+
+const SETTING_KEYS = Object.keys(DEFAULT_SETTINGS);
+
 export function useSettings() {
-  const [largeFontDefault, setLargeFontDefault] = useState(false);
-  const [showSyntheticFragrances, setShowSyntheticFragrances] = useState(true);
-  const [showParabens, setShowParabens] = useState(true);
-  const [showPFAS, setShowPFAS] = useState(true);
-  const [showSulfates, setShowSulfates] = useState(true);
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
 
   useEffect(() => {
     loadSettings();
@@ -14,104 +20,41 @@ export function useSettings() {
 
   const loadSettings = async () => {
     try {
-      const keys = [
-        "largeFontDefault",
-        "showSyntheticFragrances",
-        "showParabens",
-        "showPFAS",
-        "showSulfates",
-      ];
+      const values = await AsyncStorage.multiGet(SETTING_KEYS);
 
-      const values = await AsyncStorage.multiGet(keys);
-
-      const settings = {};
+      const loaded = { ...DEFAULT_SETTINGS };
       values.forEach(([key, value]) => {
-        settings[key] = value;
+        if (value !== null) {
+          loaded[key] = value === "true";
+        }
       });
 
-      if (settings.largeFontDefault !== null) {
-        setLargeFontDefault(settings.largeFontDefault === "true");
-      }
-      if (settings.showSyntheticFragrances !== null) {
-        setShowSyntheticFragrances(settings.showSyntheticFragrances === "true");
-      } else {
-        setShowSyntheticFragrances(true);
-      }
-      if (settings.showParabens !== null) {
-        setShowParabens(settings.showParabens === "true");
-      } else {
-        setShowParabens(true);
-      }
-      if (settings.showPFAS !== null) {
-        setShowPFAS(settings.showPFAS === "true");
-      } else {
-        setShowPFAS(true);
-      }
-      if (settings.showSulfates !== null) {
-        setShowSulfates(settings.showSulfates === "true");
-      } else {
-        setShowSulfates(true);
-      }
+      setSettings(loaded);
     } catch (error) {
       console.error("Failed to load settings:", error);
     }
   };
 
-  const handleToggleLargeFont = async (value) => {
+  const handleToggle = useCallback(async (key, value) => {
     try {
-      await AsyncStorage.setItem("largeFontDefault", value.toString());
-      setLargeFontDefault(value);
+      await AsyncStorage.setItem(key, value.toString());
+      setSettings((prev) => ({ ...prev, [key]: value }));
     } catch (error) {
       console.error("Failed to save setting:", error);
     }
-  };
-
-  const handleToggleSyntheticFragrances = async (value) => {
-    try {
-      await AsyncStorage.setItem("showSyntheticFragrances", value.toString());
-      setShowSyntheticFragrances(value);
-    } catch (error) {
-      console.error("Failed to save setting:", error);
-    }
-  };
-
-  const handleToggleParabens = async (value) => {
-    try {
-      await AsyncStorage.setItem("showParabens", value.toString());
-      setShowParabens(value);
-    } catch (error) {
-      console.error("Failed to save setting:", error);
-    }
-  };
-
-  const handleTogglePFAS = async (value) => {
-    try {
-      await AsyncStorage.setItem("showPFAS", value.toString());
-      setShowPFAS(value);
-    } catch (error) {
-      console.error("Failed to save setting:", error);
-    }
-  };
-
-  const handleToggleSulfates = async (value) => {
-    try {
-      await AsyncStorage.setItem("showSulfates", value.toString());
-      setShowSulfates(value);
-    } catch (error) {
-      console.error("Failed to save setting:", error);
-    }
-  };
+  }, []);
 
   return {
-    largeFontDefault,
-    showSyntheticFragrances,
-    showParabens,
-    showPFAS,
-    showSulfates,
-    handleToggleLargeFont,
-    handleToggleSyntheticFragrances,
-    handleToggleParabens,
-    handleTogglePFAS,
-    handleToggleSulfates,
+    largeFontDefault: settings.largeFontDefault,
+    showSyntheticFragrances: settings.showSyntheticFragrances,
+    showParabens: settings.showParabens,
+    showPFAS: settings.showPFAS,
+    showSulfates: settings.showSulfates,
+    handleToggleLargeFont: (value) => handleToggle("largeFontDefault", value),
+    handleToggleSyntheticFragrances: (value) =>
+      handleToggle("showSyntheticFragrances", value),
+    handleToggleParabens: (value) => handleToggle("showParabens", value),
+    handleTogglePFAS: (value) => handleToggle("showPFAS", value),
+    handleToggleSulfates: (value) => handleToggle("showSulfates", value),
   };
 }
