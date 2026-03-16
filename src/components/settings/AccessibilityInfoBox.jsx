@@ -13,9 +13,9 @@ export function AccessibilityInfoBox() {
         }}
       >
         <Text style={{ fontSize: 14, color: "#1E40AF", lineHeight: 20 }}>
-          When enabled, product details will automatically display in a larger,
+          When enabled, cosmetic details will automatically display in a larger,
           easier-to-read font. You can still toggle the text size on individual
-          product pages.
+          cosmetic pages.
         </Text>
       </View>
     </View>

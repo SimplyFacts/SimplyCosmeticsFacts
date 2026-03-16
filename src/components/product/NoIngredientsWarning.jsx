@@ -60,7 +60,7 @@ export function NoIngredientsWarning({ barcode, updatedAt, fontSize }) {
           marginBottom: 12,
         }}
       >
-        This product's ingredients list is missing or incomplete in the
+        This cosmetic's ingredients list is missing or incomplete in the
         database. This may happen when:
       </Text>
 
@@ -73,7 +73,7 @@ export function NoIngredientsWarning({ barcode, updatedAt, fontSize }) {
           marginBottom: 4,
         }}
       >
-        • The product is new or recently updated
+        • The cosmetic is new or recently updated
       </Text>
       <Text
         style={{

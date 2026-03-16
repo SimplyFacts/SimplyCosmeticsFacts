@@ -139,7 +139,7 @@ export default function ProductDetailScreen() {
       >
         <StatusBar style="dark" />
         <Text style={{ fontSize: 18, color: "#6B7280", textAlign: "center", marginBottom: 8 }}>
-          This product isn't in the Open Beauty Facts database yet.
+          This cosmetic isn't in the Open Beauty Facts database yet.
         </Text>
         <TouchableOpacity
           onPress={() =>

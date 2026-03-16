@@ -70,7 +70,7 @@ export default function AlertsScreen() {
       <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
         <Text style={styles.headerTitle}>Ingredient Alerts</Text>
         <Text style={styles.headerSubtitle}>
-          Get notified when scanning products with these ingredients
+          Get notified when scanning cosmetics with these ingredients
         </Text>
       </View>
 

@@ -22,7 +22,7 @@ export function DataManagementSection({ onClearScanHistory, onClearAlerts }) {
           iconColor="#DC2626"
           iconBackgroundColor="#FEF2F2"
           title="Clear Scan History"
-          description="Delete all scanned products from history"
+          description="Delete all scanned cosmetics from history"
           onPress={onClearScanHistory}
         />
 

@@ -5,7 +5,7 @@ import { useAlertsStore } from "@/stores/alertsStore";
 export const handleClearScanHistory = () => {
   Alert.alert(
     "Clear Scan History",
-    "This will permanently delete all your scanned products. This cannot be undone.",
+    "This will permanently delete all your scanned cosmetics. This cannot be undone.",
     [
       { text: "Cancel", style: "cancel" },
       {

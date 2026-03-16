@@ -114,7 +114,7 @@ export function AddAlertModal({
           >
             {detectedCategory
               ? "Would you like to alert on just this ingredient, or all ingredients in this category?"
-              : "You'll be notified when scanning products that contain this ingredient."}
+              : "You'll be notified when scanning cosmetics that contain this ingredient."}
           </Text>
 
           {/* Action Buttons */}
