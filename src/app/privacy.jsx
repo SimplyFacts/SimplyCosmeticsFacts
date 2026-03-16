@@ -181,7 +181,7 @@ export default function PrivacyPolicyScreen() {
         <SectionBlock number="2" title="How We Use Your Data">
           <BulletItem
             bold="Scan history"
-            text="To show you previously scanned products for easy reference."
+            text="To show you previously scanned cosmetics for easy reference."
           />
           <BulletItem
             bold="Ingredient alerts"
@@ -234,7 +234,7 @@ export default function PrivacyPolicyScreen() {
             <BodyText>
               When you scan a barcode, the app may query the Open Beauty Facts API
               to retrieve product information (name, ingredients, allergens,
-              nutritional data, and product images). Only the barcode number is
+              and product images). Only the barcode number is
               sent in the request. No personal data is shared with Open Beauty
               Facts. Open Beauty Facts maintains its own privacy policy and data
               protection practices that provide equal or greater protection of

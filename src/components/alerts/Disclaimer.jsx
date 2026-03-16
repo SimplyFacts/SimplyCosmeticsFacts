@@ -29,7 +29,7 @@ export function Disclaimer() {
             <Text style={styles.disclaimerBold}>Accuracy Limitations:</Text>
             {"\n"}
             This app provides product information from public databases. While
-            we strive for accuracy, nutritional data and ingredient lists may be
+            we strive for accuracy, ingredient lists may be
             incomplete, outdated, or contain errors. Always verify information
             on product packaging for the most current and accurate details.
           </Text>
@@ -56,7 +56,7 @@ export function Disclaimer() {
             <Text style={styles.disclaimerBold}>Liability:</Text>
             {"\n"}
             We are not liable for any adverse reactions, allergic reactions, or
-            health issues resulting from product consumption or reliance on
+            health issues resulting from product use or reliance on
             information provided by this app.
           </Text>
         </View>

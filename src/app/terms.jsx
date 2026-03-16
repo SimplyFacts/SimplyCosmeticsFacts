@@ -135,10 +135,10 @@ export default function TermsOfServiceScreen() {
           <BodyText style={{ marginBottom: 8 }}>
             Simply Cosmetics Facts is a barcode scanning app that allows you to:
           </BodyText>
-          <BulletItem text="Scan product barcodes to view ingredient and nutritional information" />
+          <BulletItem text="Scan product barcodes to view ingredient information" />
           <BulletItem text="Set custom ingredient alerts to flag specific ingredients" />
           <BulletItem text="Browse your scan history for previously scanned products" />
-          <BulletItem text="View allergen, additive, and nutritional data sourced from Open Beauty Facts" />
+          <BulletItem text="View allergen and additive data sourced from Open Beauty Facts" />
           <BulletItem text="Optionally support the app through voluntary in-app purchases (Tip Jar)" />
           <BodyText style={{ marginTop: 8 }}>
             The App is provided as a reference tool only and is not a substitute
@@ -249,7 +249,7 @@ export default function TermsOfServiceScreen() {
             When using the App, you agree to:
           </BodyText>
           <BulletItem text="Use the App for lawful purposes only" />
-          <BulletItem text="Verify product information against the physical product label before consumption" />
+          <BulletItem text="Verify product information against the physical product label before use" />
           <BulletItem text="Not rely solely on the App for allergy or dietary decisions" />
           <BulletItem text="Not use the App in a way that could damage, disable, or impair the service" />
           <BulletItem text="Not attempt to gain unauthorized access to any part of the App or its systems" />
@@ -274,7 +274,7 @@ export default function TermsOfServiceScreen() {
           </BodyText>
           <BulletItem
             bold="Open Beauty Facts"
-            text="An open, crowdsourced database of food products. We are not responsible for the accuracy, availability, or content of data provided by Open Beauty Facts."
+            text="An open, crowdsourced database of cosmetic products. We are not responsible for the accuracy, availability, or content of data provided by Open Beauty Facts."
           />
           <BodyText style={{ marginTop: 8 }}>
             We are not affiliated with, endorsed by, or responsible for any
