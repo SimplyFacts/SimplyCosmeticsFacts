@@ -36,3 +36,6 @@ app-example
 
 caches/
 public/
+
+# Claude Code
+CLAUDE.md
