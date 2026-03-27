@@ -53,3 +53,5 @@ yarn-error.log*
 *.tsbuildinfo
 caches/
 .metro-virtual/
+.DS_Store
+node_modules/
