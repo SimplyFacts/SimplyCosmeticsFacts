@@ -1,4 +1,3 @@
-import { useAuth } from "@/utils/auth/useAuth";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
@@ -10,13 +9,14 @@ import { QueryProvider } from "@/providers/QueryProvider";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const { initiate, isReady } = useAuth();
+  const [isReady, setIsReady] = useState(false);
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [disclaimerChecked, setDisclaimerChecked] = useState(false);
 
   useEffect(() => {
-    initiate();
-  }, [initiate]);
+    // Replace Anything.ai auth initiation with simple ready signal
+    setIsReady(true);
+  }, []);
 
   useEffect(() => {
     checkDisclaimerStatus();
@@ -45,16 +45,24 @@ export default function RootLayout() {
     }
   };
 
+  const hideSplash = async () => {
+    let attempts = 0;
+    while (attempts < 10) {
+      const result = await SplashScreen.hideAsync();
+      if (result !== undefined) break;
+      await new Promise(r => setTimeout(r, 100));
+      attempts++;
+    }
+  };
+
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      SplashScreen.hideAsync();
-    }, 1500);
+    const timeout = setTimeout(hideSplash, 1500);
     return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
     if (isReady && disclaimerChecked) {
-      SplashScreen.hideAsync();
+      hideSplash();
     }
   }, [isReady, disclaimerChecked]);
 
