@@ -4,34 +4,48 @@ import { parseIngredients } from "@/utils/ingredientUtils";
 import { detectAllIngredients } from "@/utils/ingredientMatcher";
 import { useScanHistory } from "@/hooks/useScanHistory";
 
-// Fetch product from local DB or OpenBeautyFacts
+// Fetch product directly from Open Beauty Facts
 async function fetchProduct(barcode) {
-  // First try local database
-  let response = await fetch(`/api/products?barcode=${barcode}`);
+  const response = await fetch(
+    `https://world.openbeautyfacts.org/api/v0/product/${barcode}.json`
+  );
 
   if (!response.ok) {
-    // If not found locally, try OpenBeautyFacts
-    response = await fetch(`/api/products/lookup?barcode=${barcode}`);
-
-    if (!response.ok) {
-      throw new Error("Product not found");
-    }
-
-    const productData = await response.json();
-
-    // Save to local database for future use (fire and forget)
-    fetch("/api/products", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(productData),
-    }).catch((error) =>
-      console.error("Failed to save product to database:", error),
-    );
-
-    return productData;
+    throw new Error("Failed to lookup product");
   }
 
-  return response.json();
+  const data = await response.json();
+
+  if (data.status === 0) {
+    throw new Error("Product not found in database");
+  }
+
+  const product = data.product;
+
+  return {
+    barcode,
+    name: product.product_name || "Unknown Product",
+    brand: product.brands || null,
+    ingredients: product.ingredients_text || null,
+    allergens: product.allergens_tags || [],
+    traces: product.traces_tags || [],
+    crossContaminationWarnings: [],
+    additives_tags: product.additives_tags || [],
+    ingredients_analysis_tags: product.ingredients_analysis_tags || [],
+    ingredients_tags: product.ingredients_tags || [],
+    nutritional_info: {
+      energy_kcal: product.nutriments?.["energy-kcal"] || null,
+      fat: product.nutriments?.fat || null,
+      saturated_fat: product.nutriments?.["saturated-fat"] || null,
+      carbohydrates: product.nutriments?.carbohydrates || null,
+      sugars: product.nutriments?.sugars || null,
+      fiber: product.nutriments?.fiber || null,
+      proteins: product.nutriments?.proteins || null,
+      salt: product.nutriments?.salt || null,
+      sodium: product.nutriments?.sodium || null,
+    },
+    image_url: product.image_url || product.image_front_url || null,
+  };
 }
 
 export function useProduct(barcode) {
