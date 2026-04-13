@@ -1,51 +1,53 @@
 import { create } from "zustand";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Crypto from "expo-crypto";
 
-// Global alerts store using Zustand
+const ALERTS_KEY = "simplycosmeticsfacts_alerts";
+
+async function loadAlerts() {
+  try {
+    const stored = await AsyncStorage.getItem(ALERTS_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+}
+
+async function saveAlerts(alerts) {
+  try {
+    await AsyncStorage.setItem(ALERTS_KEY, JSON.stringify(alerts));
+  } catch (error) {
+    console.error("Error saving alerts:", error);
+  }
+}
+
 export const useAlertsStore = create((set, get) => ({
   alerts: [],
   isLoading: false,
   lastFetched: null,
   error: null,
 
-  // Fetch alerts from API
   fetchAlerts: async () => {
     set({ isLoading: true, error: null });
-
     try {
-      const response = await fetch("/api/alerts");
-      if (!response.ok) throw new Error("Failed to fetch alerts");
-
-      const data = await response.json();
-      set({
-        alerts: Array.isArray(data) ? data : [],
-        isLoading: false,
-        lastFetched: Date.now(),
-        error: null,
-      });
+      const alerts = await loadAlerts();
+      set({ alerts, isLoading: false, lastFetched: Date.now(), error: null });
     } catch (error) {
-      console.error("Error fetching alerts:", error);
       set({ error: error.message, isLoading: false });
     }
   },
 
-  // Add a new alert
   addAlert: async (ingredient_name, notes) => {
     try {
-      const response = await fetch("/api/alerts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ingredient_name, notes }),
-      });
-
-      if (!response.ok) throw new Error("Failed to add alert");
-
-      const newAlert = await response.json();
-
-      // Optimistically update the store
-      set((state) => ({
-        alerts: [...state.alerts, newAlert],
-      }));
-
+      const newAlert = {
+        id: Crypto.randomUUID(),
+        ingredient_name,
+        notes: notes || null,
+        created_at: new Date().toISOString(),
+      };
+      const updatedAlerts = [...get().alerts, newAlert];
+      await saveAlerts(updatedAlerts);
+      set({ alerts: updatedAlerts });
       return newAlert;
     } catch (error) {
       console.error("Error adding alert:", error);
@@ -53,80 +55,50 @@ export const useAlertsStore = create((set, get) => ({
     }
   },
 
-  // Batch add multiple alerts at once
   batchAddAlerts: async (ingredientNames) => {
     try {
-      const response = await fetch("/api/alerts/batch", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ingredients: ingredientNames }),
-      });
-
-      if (!response.ok) throw new Error("Failed to batch add alerts");
-
-      const result = await response.json();
-
-      // Refresh the full alerts list to stay in sync
-      await get().fetchAlerts();
-
-      return result;
+      const existing = get().alerts;
+      const existingNames = new Set(
+        existing.map((a) => a.ingredient_name.toLowerCase())
+      );
+      const newAlerts = ingredientNames
+        .filter((name) => !existingNames.has(name.toLowerCase()))
+        .map((name) => ({
+          id: Crypto.randomUUID(),
+          ingredient_name: name,
+          notes: null,
+          created_at: new Date().toISOString(),
+        }));
+      const updatedAlerts = [...existing, ...newAlerts];
+      await saveAlerts(updatedAlerts);
+      set({ alerts: updatedAlerts });
+      return { added: newAlerts.length };
     } catch (error) {
       console.error("Error batch adding alerts:", error);
       throw error;
     }
   },
 
-  // Delete an alert
   deleteAlert: async (id) => {
     try {
-      const response = await fetch(`/api/alerts/${id}`, {
-        method: "DELETE",
-      });
-
-      if (!response.ok) throw new Error("Failed to delete alert");
-
-      // Optimistically update the store
-      set((state) => ({
-        alerts: state.alerts.filter((alert) => alert.id !== id),
-      }));
+      const updatedAlerts = get().alerts.filter((alert) => alert.id !== id);
+      await saveAlerts(updatedAlerts);
+      set({ alerts: updatedAlerts });
     } catch (error) {
       console.error("Error deleting alert:", error);
       throw error;
     }
   },
 
-  // Deactivate an alert (set active to false)
   deactivateAlert: async (id) => {
-    const previousAlerts = get().alerts;
-    // Optimistically remove from active alerts list
-    set((state) => ({
-      alerts: state.alerts.filter((alert) => alert.id !== id),
-    }));
-
-    try {
-      const response = await fetch(`/api/alerts/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ active: false }),
-      });
-
-      if (!response.ok) {
-        set({ alerts: previousAlerts });
-        throw new Error("Failed to deactivate alert");
-      }
-    } catch (error) {
-      console.error("Error deactivating alert:", error);
-      set({ alerts: previousAlerts });
-      throw error;
-    }
+    await get().deleteAlert(id);
   },
 
-  // Clear all alerts (for logout or reset)
-  clearAlerts: () => {
+  clearAlerts: async () => {
+    await saveAlerts([]);
     set({ alerts: [], lastFetched: null });
   },
 
-  // Check if alerts need refreshing (older than 5 minutes)
   shouldRefresh: () => {
     const state = get();
     if (!state.lastFetched) return true;

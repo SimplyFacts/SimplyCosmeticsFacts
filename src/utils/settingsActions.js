@@ -1,6 +1,9 @@
 import { Alert } from "react-native";
 import * as Linking from "expo-linking";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useAlertsStore } from "@/stores/alertsStore";
+
+const HISTORY_KEY = "simplycosmeticsfacts_scan_history";
 
 export const handleClearScanHistory = () => {
   Alert.alert(
@@ -13,14 +16,8 @@ export const handleClearScanHistory = () => {
         style: "destructive",
         onPress: async () => {
           try {
-            const response = await fetch("/api/scan-history", {
-              method: "DELETE",
-            });
-            if (response.ok) {
-              Alert.alert("Success", "Scan history cleared");
-            } else {
-              Alert.alert("Error", "Failed to clear scan history");
-            }
+            await AsyncStorage.removeItem(HISTORY_KEY);
+            Alert.alert("Success", "Scan history cleared");
           } catch (error) {
             console.error("Failed to clear scan history:", error);
             Alert.alert("Error", "Failed to clear scan history");
@@ -42,15 +39,8 @@ export const handleClearAlerts = () => {
         style: "destructive",
         onPress: async () => {
           try {
-            const response = await fetch("/api/alerts", {
-              method: "DELETE",
-            });
-            if (response.ok) {
-              useAlertsStore.getState().clearAlerts();
-              Alert.alert("Success", "All alerts cleared");
-            } else {
-              Alert.alert("Error", "Failed to clear alerts");
-            }
+            await useAlertsStore.getState().clearAlerts();
+            Alert.alert("Success", "All alerts cleared");
           } catch (error) {
             console.error("Failed to clear alerts:", error);
             Alert.alert("Error", "Failed to clear alerts");
