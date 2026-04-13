@@ -107,7 +107,7 @@ export default function HistoryScreen() {
         <FlatList
           data={history}
           renderItem={renderHistoryItem}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.barcode}
           contentContainerStyle={[
             styles.listContent,
             { paddingBottom: insets.bottom + 80 },
