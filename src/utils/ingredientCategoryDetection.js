@@ -1,35 +1,18 @@
-import {
-  ADDITIVE_CATEGORIES,
-  CATEGORY_LABELS,
-  ALLERGEN_TO_CATEGORY_MAP,
-  ALERT_CATEGORY_MAPPING,
-} from "./ingredientCategories";
+import { resolveAlertVariations, COSMETIC_CATEGORIES, COSMETIC_ALERT_CATEGORY_MAPPING, COSMETIC_CATEGORY_LABELS } from "./cosmeticCategories";
 
-// Detect which category an ingredient belongs to
+// Detect which cosmetic category an ingredient belongs to
 export function detectIngredientCategory(ingredientName) {
   if (!ingredientName) return null;
 
   const normalized = ingredientName.toLowerCase().trim();
 
-  // Check if it matches any category
-  for (const [categoryKey, categorySet] of Object.entries(
-    ADDITIVE_CATEGORIES,
-  )) {
-    // Check direct match or with "en:" prefix
-    if (categorySet.has(normalized) || categorySet.has(`en:${normalized}`)) {
-      return CATEGORY_LABELS[categoryKey];
+  for (const [categoryKey, categorySet] of Object.entries(COSMETIC_CATEGORIES)) {
+    if (categorySet.has(normalized)) {
+      return COSMETIC_CATEGORY_LABELS[categoryKey] || null;
     }
   }
 
   return null;
-}
-
-// Map allergen tags (from product data) to category keys
-export function getAllergenCategory(allergenTag) {
-  if (!allergenTag) return null;
-
-  const normalized = allergenTag.toLowerCase().replace("en:", "").trim();
-  return ALLERGEN_TO_CATEGORY_MAP[normalized] || null;
 }
 
 // Check if ingredient matches any of the product's allergens
@@ -43,74 +26,62 @@ export function matchesProductAllergen(ingredient, allergens) {
     .replace(/\d+\.?\d*\s*%/g, "")
     .trim();
 
-  // Check each allergen from the product
   for (const allergen of allergens) {
-    const categoryKey = getAllergenCategory(allergen);
-    if (!categoryKey) continue;
-
-    const categorySet = ADDITIVE_CATEGORIES[categoryKey];
-    if (!categorySet) continue;
-
-    // Check if ingredient matches this category
+    const normalized = allergen.toLowerCase().replace("en:", "").trim();
     if (
-      categorySet.has(normalizedIngredient) ||
-      categorySet.has(`en:${normalizedIngredient}`)
+      normalizedIngredient.includes(normalized) ||
+      normalized.includes(normalizedIngredient)
     ) {
       return true;
-    }
-
-    // Check individual words in the ingredient
-    const words = normalizedIngredient.split(/\s+/);
-    for (const word of words) {
-      if (categorySet.has(word) || categorySet.has(`en:${word}`)) {
-        return true;
-      }
     }
   }
 
   return false;
 }
 
-// Check if an ingredient has an alert
+// Check if an ingredient has a matching alert
+// Uses resolveAlertVariations so preset names like "Fragrance / Parfum"
+// correctly match "fragrance" or "parfum" in the ingredients list
 export function hasAlert(ingredient, alerts) {
   if (!alerts || !ingredient) return null;
 
-  const normalizedIngredient = ingredient.toLowerCase().trim();
+  const normalizedIngredient = ingredient
+    .toLowerCase()
+    .trim()
+    .replace(/\([^)]*\)/g, "")
+    .replace(/\d+\.?\d*\s*%/g, "")
+    .trim();
 
   return alerts.find((alert) => {
     const alertName = alert.ingredient_name.toLowerCase().trim();
 
-    // Only match if the ingredient contains the alert name (not bidirectional)
-    if (normalizedIngredient.includes(alertName)) {
-      return true;
+    // Resolve all variations for this alert name
+    const variations = resolveAlertVariations(alertName);
+    for (const variation of variations) {
+      const normalizedVariation = variation.toLowerCase().trim();
+      if (
+        normalizedIngredient.includes(normalizedVariation) ||
+        normalizedVariation.includes(normalizedIngredient)
+      ) {
+        return true;
+      }
     }
 
-    // Check if this alert is for a category
-    const categoryKey = ALERT_CATEGORY_MAPPING[alertName];
-    if (categoryKey && ADDITIVE_CATEGORIES[categoryKey]) {
-      // Check if this ingredient is in the category
-      const category = ADDITIVE_CATEGORIES[categoryKey];
-
-      // Remove content in parentheses and percentages for better matching
+    // Check cosmetic category mapping
+    // e.g. alert for "Parabens" category matches any paraben ingredient
+    const categoryKey = COSMETIC_ALERT_CATEGORY_MAPPING[alertName];
+    if (categoryKey && COSMETIC_CATEGORIES[categoryKey]) {
+      const category = COSMETIC_CATEGORIES[categoryKey];
       const cleanedIngredient = normalizedIngredient
         .replace(/\([^)]*\)/g, "")
         .replace(/\d+\.?\d*\s*%/g, "")
         .trim();
 
-      // Check if ingredient or any part of it matches category
-      if (
-        category.has(cleanedIngredient) ||
-        category.has(`en:${cleanedIngredient}`)
-      ) {
-        return true;
-      }
+      if (category.has(cleanedIngredient)) return true;
 
-      // Also check individual words in case of multi-word ingredients
       const words = cleanedIngredient.split(/\s+/);
       for (const word of words) {
-        if (category.has(word) || category.has(`en:${word}`)) {
-          return true;
-        }
+        if (category.has(word)) return true;
       }
     }
 

@@ -68,7 +68,7 @@ export default function ProductDetailScreen() {
 
   const matchedAlerts = useMemo(() => {
     if (!product) return [];
-    return matchAlerts(alerts, ingredientsText, product);
+    return matchAlerts(alerts, ingredientsText, product, detectedIngredients);
   }, [alerts, ingredientsText, product]);
 
   const loadPreferences = async () => {
