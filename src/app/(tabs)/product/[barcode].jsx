@@ -19,6 +19,7 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { AlertsSection } from "@/components/product/AlertsSection";
 import { AllergensSection } from "@/components/product/AllergensSection";
 import { ArtificialColorsSection } from "@/components/product/ArtificialColorsSection";
+import { ArtificialIngredientsSection } from "@/components/product/ArtificialIngredientsSection";
 import { SyntheticFragrancesSection } from "@/components/product/SyntheticFragrancesSection";
 import { ParabensSection } from "@/components/product/ParabensSection";
 import { PFASSection } from "@/components/product/PFASSection";
@@ -280,6 +281,13 @@ export default function ProductDetailScreen() {
 <SectionErrorBoundary sectionName="Artificial colors">
                 <ArtificialColorsSection
                   colors={detectedIngredients.artificialColors}
+                  fontSize={fontSize}
+                />
+              </SectionErrorBoundary>
+
+              <SectionErrorBoundary sectionName="Artificial ingredients">
+                <ArtificialIngredientsSection
+                  ingredients={detectedIngredients.artificialIngredients}
                   fontSize={fontSize}
                 />
               </SectionErrorBoundary>
