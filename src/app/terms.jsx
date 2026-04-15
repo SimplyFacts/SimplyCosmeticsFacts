@@ -109,7 +109,7 @@ export default function TermsOfServiceScreen() {
             marginBottom: 16,
           }}
         >
-          Effective Date: March 1, 2026
+          Effective Date: April 14, 2026
         </Text>
 
         <BodyText style={{ marginBottom: 24 }}>
@@ -219,7 +219,7 @@ export default function TermsOfServiceScreen() {
               Information displayed is for general informational purposes only.
             </Text>
           </View>
-          <BulletItem text="Do not rely on the App as your sole source of allergy or dietary information." />
+          <BulletItem text="Do not rely on the App as your sole source of allergy or ingredient information." />
           <BulletItem text="Always read the physical product label before using any cosmetic product." />
           <BulletItem text="Consult a qualified healthcare provider or dermatologist for personalized advice regarding skin sensitivities, intolerances, or cosmetic needs." />
           <BulletItem text="In the event of a suspected allergic reaction, seek immediate medical attention." />
@@ -358,7 +358,7 @@ export default function TermsOfServiceScreen() {
           <BodyText>
             If you have questions about these Terms, please contact us at{" "}
             <Text style={{ fontWeight: "600", color: "#2563EB" }}>
-              SimplyFoodFacts@gmail.com
+              simplyfactsfamily@gmail.com
             </Text>
             .
           </BodyText>
@@ -380,7 +380,7 @@ export default function TermsOfServiceScreen() {
               textAlign: "center",
             }}
           >
-            Simply Cosmetics Facts · Terms of Service · Last updated March 1, 2026
+            Simply Cosmetics Facts · Terms of Service · Last updated April 14, 2026
           </Text>
         </View>
       </ScrollView>
