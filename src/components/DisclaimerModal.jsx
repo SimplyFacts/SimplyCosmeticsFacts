@@ -99,8 +99,11 @@ export default function DisclaimerModal({ visible, onAccept }) {
                 <Text
                   style={{ fontSize: 14, lineHeight: 20, color: "#991B1B" }}
                 >
-                  Do not rely solely on this app for allergy information. Always
-                  read the actual product label.
+                  Allergen information shown is based solely on manufacturer
+                  declarations and data from the Open Beauty Facts database.
+                  This app does not independently detect or verify allergens.
+                  What is an allergen for one person may not be for another.
+                  Always read the physical product label.
                 </Text>
               </View>
             </View>
@@ -169,8 +172,7 @@ export default function DisclaimerModal({ visible, onAccept }) {
                 fontStyle: "italic",
               }}
             >
-              You can delete this data anytime in Settings. Scan history older
-              than 30 days is automatically deleted.
+              You can delete this data anytime in Settings.
             </Text>
           </View>
 
@@ -191,7 +193,7 @@ export default function DisclaimerModal({ visible, onAccept }) {
               "Product formulas change frequently without notice",
               "Regional and country variations exist",
               "Information is sourced from Open Beauty Facts (crowdsourced)",
-              "Not intended as medical or nutritional advice",
+              "Not intended as medical or dermatological advice",
               "Not a substitute for reading product packaging",
             ].map((item, index) => (
               <View
@@ -229,9 +231,9 @@ export default function DisclaimerModal({ visible, onAccept }) {
                 textAlign: "center",
               }}
             >
-              For serious allergies or dietary restrictions, always consult your
-              healthcare provider and verify all ingredients on the physical
-              product package.
+              For serious skin sensitivities, allergies, or ingredient concerns,
+              always consult a qualified healthcare provider and verify all
+              ingredients on the physical product package.
             </Text>
           </View>
 

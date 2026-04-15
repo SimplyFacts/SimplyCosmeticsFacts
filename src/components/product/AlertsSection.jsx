@@ -3,12 +3,34 @@ import { AlertTriangle, ChevronDown } from "lucide-react-native";
 import { getFontSizes } from "@/utils/productPreferences";
 import { CollapsibleSection } from "./CollapsibleSection";
 
-export function AlertsSection({ matchedAlerts, fontSize = "medium" }) {
+export function AlertsSection({
+  matchedAlerts,
+  fontSize = "medium",
+  hasAlerts = false,
+  noCategoriesFound = true,
+  showSyntheticFragrances = true,
+  showParabens = true,
+  showPFAS = true,
+  showSulfates = true,
+}) {
   const fonts = getFontSizes(fontSize);
   const hasMatches = matchedAlerts && matchedAlerts.length > 0;
 
-  // If no alerts matched, show a helpful empty state hint
-  if (!hasMatches) {
+  if (!hasMatches && !noCategoriesFound) return null;
+
+  if (!hasMatches && noCategoriesFound) {
+    // Build dynamic list of what was actually checked
+    const checkedCategories = [
+      showSyntheticFragrances && "synthetic fragrances",
+      showParabens && "parabens",
+      showPFAS && "PFAS",
+      showSulfates && "sulfates",
+      "artificial colors",
+      "artificial ingredients",
+    ].filter(Boolean);
+
+    const checkedText = `Checked for ${checkedCategories.join(", ")}.`;
+
     return (
       <View
         style={{
@@ -30,22 +52,44 @@ export function AlertsSection({ matchedAlerts, fontSize = "medium" }) {
               fontSize: fonts.bodyText,
               fontWeight: "600",
               color: "#15803D",
-              marginBottom: 2,
+              marginBottom: 4,
             }}
           >
-            No ingredient alerts triggered
+            No concerns found
           </Text>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+          <Text
+            style={{
+              fontSize: fonts.bodyText - 1,
+              color: "#16A34A",
+              marginBottom: hasAlerts ? 4 : 0,
+            }}
+          >
+            {checkedText}
+          </Text>
+          {hasAlerts && (
             <Text
               style={{
                 fontSize: fonts.bodyText - 1,
                 color: "#16A34A",
+                marginBottom: 4,
               }}
             >
-              Scroll down to the ingredients list to add alerts
+              Your alerts were checked — none triggered.
             </Text>
-            <ChevronDown size={14} color="#16A34A" />
-          </View>
+          )}
+          {!hasAlerts && (
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 4, marginTop: 2 }}>
+              <Text
+                style={{
+                  fontSize: fonts.bodyText - 1,
+                  color: "#16A34A",
+                }}
+              >
+                Scroll down to the ingredients list to add alerts
+              </Text>
+              <ChevronDown size={14} color="#16A34A" />
+            </View>
+          )}
         </View>
       </View>
     );

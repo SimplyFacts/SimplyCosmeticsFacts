@@ -7,6 +7,8 @@ export function ArtificialIngredientsSection({
   ingredients,
   fontSize = "medium",
 }) {
+  if (!ingredients || ingredients.length === 0) return null;
+
   const fonts = getFontSizes(fontSize);
 
   return (

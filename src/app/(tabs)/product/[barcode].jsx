@@ -71,6 +71,18 @@ export default function ProductDetailScreen() {
     return matchAlerts(alerts, ingredientsText, product, detectedIngredients);
   }, [alerts, ingredientsText, product]);
 
+  const noCategoriesFound = useMemo(() => {
+    if (!detectedIngredients) return true;
+    return (
+      detectedIngredients.artificialColors.length === 0 &&
+      detectedIngredients.artificialIngredients.length === 0 &&
+      (!showSyntheticFragrances || detectedIngredients.syntheticFragrances.length === 0) &&
+      (!showParabens || detectedIngredients.parabens.length === 0) &&
+      (!showPFAS || detectedIngredients.pfas.length === 0) &&
+      (!showSulfates || detectedIngredients.sulfates.length === 0)
+    );
+  }, [detectedIngredients, showSyntheticFragrances, showParabens, showPFAS, showSulfates]);
+
   const loadPreferences = async () => {
     const fontSizePref = await loadFontSizePreference();
     setFontSize(fontSizePref);
@@ -190,46 +202,6 @@ export default function ProductDetailScreen() {
           fontSize={fontSize}
         />
 
-        {/* Clear status note below product info */}
-        {hasNoAllergens && !hasNoIngredients && (
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-              gap: 8,
-              paddingHorizontal: 16,
-              paddingTop: 8,
-              paddingBottom: 4,
-            }}
-          >
-            {hasNoAllergens && (
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  backgroundColor: "#F0FDF4",
-                  paddingHorizontal: 12,
-                  paddingVertical: 8,
-                  borderRadius: 20,
-                  borderWidth: 1,
-                  borderColor: "#BBF7D0",
-                }}
-              >
-                <CircleCheck size={16} color="#16A34A" />
-                <Text
-                  style={{
-                    fontSize: fonts.tagText,
-                    color: "#15803D",
-                    fontWeight: "600",
-                    marginLeft: 6,
-                  }}
-                >
-                  No allergens detected
-                </Text>
-              </View>
-            )}
-          </View>
-        )}
 
         <View style={{ paddingHorizontal: 24, paddingTop: 16 }}>
           {hasNoIngredients && (
@@ -264,7 +236,16 @@ export default function ProductDetailScreen() {
 
           {/* Reordered sections: Alerts and Allergens first */}
           <SectionErrorBoundary sectionName="Alerts">
-            <AlertsSection matchedAlerts={matchedAlerts} fontSize={fontSize} />
+            <AlertsSection
+            matchedAlerts={matchedAlerts}
+            fontSize={fontSize}
+            hasAlerts={alerts.length > 0}
+            noCategoriesFound={noCategoriesFound}
+            showSyntheticFragrances={showSyntheticFragrances}
+            showParabens={showParabens}
+            showPFAS={showPFAS}
+            showSulfates={showSulfates}
+          />
           </SectionErrorBoundary>
 
           <SectionErrorBoundary sectionName="Allergens">
