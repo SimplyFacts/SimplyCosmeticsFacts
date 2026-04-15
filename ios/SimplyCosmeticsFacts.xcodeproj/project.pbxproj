@@ -329,7 +329,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CONFIGURATION\" = \"Release\" ]; then\n  BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\n  NEW_BUILD_NUMBER=$((BUILD_NUMBER + 1))\n  /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $NEW_BUILD_NUMBER\" \"${INFOPLIST_FILE}\"\n  sed -i '' \"s/CURRENT_PROJECT_VERSION = [0-9]*/CURRENT_PROJECT_VERSION = $NEW_BUILD_NUMBER/g\" \"${PROJECT_FILE_PATH}/project.pbxproj\"\n  echo \"Build number incremented to $NEW_BUILD_NUMBER\"\nfi\n";
+			shellScript = "if [ \"$CONFIGURATION\" = \"Release\" ]; then\n  BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${INFOPLIST_FILE}\")\n  NEW_BUILD_NUMBER=$((BUILD_NUMBER + 1))\n  /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $NEW_BUILD_NUMBER\" \"${INFOPLIST_FILE}\"\n  sed -i '' \"s/CURRENT_PROJECT_VERSION = 2[0-9]*/CURRENT_PROJECT_VERSION = 2$NEW_BUILD_NUMBER/g\" \"${PROJECT_FILE_PATH}/project.pbxproj\"\n  echo \"Build number incremented to $NEW_BUILD_NUMBER\"\nfi\n";
 		};
 		E4694C221C67940A9EDE4D71 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -385,6 +385,8 @@
 					"FB_SONARKIT_ENABLED=1",
 				);
 				INFOPLIST_FILE = SimplyCosmeticsFacts/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Simply Cosmetics Facts";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,6 +419,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5MG8AK45K9;
 				INFOPLIST_FILE = SimplyCosmeticsFacts/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Simply Cosmetics Facts";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
