@@ -127,7 +127,7 @@ export default function PrivacyPolicyScreen() {
             marginBottom: 16,
           }}
         >
-          Effective Date: March 1, 2026
+          Effective Date: April 14, 2026
         </Text>
 
         <BodyText style={{ marginBottom: 24 }}>
@@ -145,7 +145,7 @@ export default function PrivacyPolicyScreen() {
             />
             <BulletItem
               bold="Ingredient alerts"
-              text='Custom ingredient alerts you create (e.g., "Aspartame," "Red 40") are stored so the app can flag those ingredients in future scans.'
+              text='Custom ingredient alerts you create (e.g., "Fragrance / Parfum," "Methylparaben") are stored so the app can flag those ingredients in future scans.'
             />
           </SubsectionBlock>
 
@@ -269,9 +269,7 @@ export default function PrivacyPolicyScreen() {
 
         {/* Section 5 */}
         <SectionBlock number="5" title="Data Storage and Retention">
-          <BulletItem text="Your data is stored on secure cloud-hosted databases within the United States." />
-          <BulletItem text="Scan history and ingredient alerts are stored in a secure database." />
-          <BulletItem text="Scan history older than 30 days is automatically deleted." />
+          <BulletItem text="All scan history and ingredient alerts are stored locally on your device using secure on-device storage. This data is never transmitted to our servers." />
           <BulletItem text="You can manually delete all scan history or ingredient alerts at any time in Settings." />
           <BulletItem text="App preferences are stored only on your device and are removed when you uninstall the app." />
           <BulletItem text="In-app purchase transaction records are managed by Apple and RevenueCat. We do not store purchase history on our servers." />
@@ -343,7 +341,7 @@ export default function PrivacyPolicyScreen() {
           <BodyText>
             If you have questions, contact us at{" "}
             <Text style={{ fontWeight: "600", color: "#2563EB" }}>
-              SimplyFoodFacts@gmail.com
+              simplyfactsfamily@gmail.com
             </Text>
             .
           </BodyText>
@@ -365,7 +363,7 @@ export default function PrivacyPolicyScreen() {
               textAlign: "center",
             }}
           >
-            Simply Cosmetics Facts · Privacy Policy · Last updated March 1, 2026
+            Simply Cosmetics Facts · Privacy Policy · Last updated April 14, 2026
           </Text>
         </View>
       </ScrollView>
