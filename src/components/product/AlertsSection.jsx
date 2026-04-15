@@ -17,45 +17,7 @@ export function AlertsSection({
   const fonts = getFontSizes(fontSize);
   const hasMatches = matchedAlerts && matchedAlerts.length > 0;
 
-  if (!hasIngredients) {
-    return (
-      <View
-        style={{
-          backgroundColor: "#F3F4F6",
-          borderRadius: 12,
-          padding: 16,
-          marginBottom: 12,
-          borderWidth: 1,
-          borderColor: "#D1D5DB",
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 10,
-        }}
-      >
-        <Text style={{ fontSize: 20 }}>❓</Text>
-        <View style={{ flex: 1 }}>
-          <Text
-            style={{
-              fontSize: fonts.bodyText,
-              fontWeight: "600",
-              color: "#374151",
-              marginBottom: 4,
-            }}
-          >
-            Could not check for concerns
-          </Text>
-          <Text
-            style={{
-              fontSize: fonts.bodyText - 1,
-              color: "#6B7280",
-            }}
-          >
-            Ingredients are unavailable for this product.
-          </Text>
-        </View>
-      </View>
-    );
-  }
+  if (!hasIngredients) return null;
 
   if (!hasMatches && !noCategoriesFound) return null;
 

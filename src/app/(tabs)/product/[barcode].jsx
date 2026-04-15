@@ -229,7 +229,7 @@ export default function ProductDetailScreen() {
                 <Text style={{ fontWeight: "600" }}>
                   Limited data available.
                 </Text>{" "}
-                Ingredients are missing. Always verify by reading the package.
+                Could not check for concerns. Ingredients are missing. Always verify by reading the package.
               </Text>
             </View>
           )}
