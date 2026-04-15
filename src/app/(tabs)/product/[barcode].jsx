@@ -240,6 +240,7 @@ export default function ProductDetailScreen() {
             matchedAlerts={matchedAlerts}
             fontSize={fontSize}
             hasAlerts={alerts.length > 0}
+            hasIngredients={!hasNoIngredients}
             noCategoriesFound={noCategoriesFound}
             showSyntheticFragrances={showSyntheticFragrances}
             showParabens={showParabens}
