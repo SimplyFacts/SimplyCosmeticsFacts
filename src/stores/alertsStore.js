@@ -94,6 +94,17 @@ export const useAlertsStore = create((set, get) => ({
     await get().deleteAlert(id);
   },
 
+  batchRemoveAlerts: async (ingredientNames) => {
+    const normalizedNames = ingredientNames.map((n) => n.toLowerCase());
+    const updatedAlerts = get().alerts.filter(
+      (a) =>
+        !a.ingredient_name ||
+        !normalizedNames.includes(a.ingredient_name.toLowerCase()),
+    );
+    await saveAlerts(updatedAlerts);
+    set({ alerts: updatedAlerts });
+  },
+
   clearAlerts: async () => {
     await saveAlerts([]);
     set({ alerts: [], lastFetched: null });

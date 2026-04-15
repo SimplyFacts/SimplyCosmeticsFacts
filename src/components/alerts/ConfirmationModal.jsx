@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
 export function ConfirmationModal({
   visible,
   ingredientName,
+  message,
   onConfirm,
   onCancel,
 }) {
@@ -17,9 +18,7 @@ export function ConfirmationModal({
         <View style={styles.modalContent}>
           <Text style={styles.modalTitle}>Remove Alert?</Text>
           <Text style={styles.modalMessage}>
-            Remove the alert for "{ingredientName}"?
-            {"\n\n"}
-            You can add it back anytime by tapping it again.
+            {message || `Remove the alert for "${ingredientName}"?\n\nYou can add it back anytime by tapping it again.`}
           </Text>
           <View style={styles.modalButtons}>
             <TouchableOpacity

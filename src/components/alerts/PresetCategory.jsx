@@ -5,7 +5,7 @@ import { isPresetAlreadyAdded } from "@/utils/alertPresets";
 import { PresetChip } from "./PresetChip";
 
 export const PresetCategory = memo(
-  ({ category, alerts, onAddPreset, onDeselectPreset }) => {
+  ({ category, alerts, onAddPreset, onAddAllPresets, onRemoveAllPresets, onDeselectPreset }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     // Count selected items in this category — only recompute when alerts change
@@ -16,6 +16,22 @@ export const PresetCategory = memo(
         ).length,
       [category.items, alerts],
     );
+
+    const allAdded = selectedCount === category.items.length;
+
+    const handleAddAll = () => {
+      const toAdd = category.items
+        .filter((preset) => !isPresetAlreadyAdded(preset.name, alerts))
+        .map((preset) => preset.name);
+      if (toAdd.length > 0) {
+        onAddAllPresets(toAdd);
+      }
+    };
+
+    const handleRemoveAll = () => {
+      const toRemove = category.items.map((preset) => preset.name);
+      onRemoveAllPresets(category.title, toRemove);
+    };
 
     return (
       <View style={[styles.presetCategory, isExpanded && { width: "100%" }]}>
@@ -59,6 +75,30 @@ export const PresetCategory = memo(
 
         {isExpanded && (
           <View style={styles.presetChipsContainer}>
+            <TouchableOpacity
+              onPress={allAdded ? handleRemoveAll : handleAddAll}
+              style={{
+                width: "100%",
+                paddingVertical: 8,
+                paddingHorizontal: 14,
+                borderRadius: 20,
+                backgroundColor: allAdded ? "#FEF2F2" : category.backgroundColor,
+                borderWidth: 1,
+                borderColor: allAdded ? "#DC2626" : category.color,
+                alignItems: "center",
+                marginBottom: 4,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 13,
+                  fontWeight: "600",
+                  color: allAdded ? "#DC2626" : category.color,
+                }}
+              >
+                {allAdded ? "Remove all" : "Add all"}
+              </Text>
+            </TouchableOpacity>
             {category.items.map((preset, index) => (
               <PresetChip
                 key={index}

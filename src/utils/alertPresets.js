@@ -403,6 +403,7 @@ export function getCategoryInfo(categoryKey) {
 
 // Check if an alert is a preset ingredient (exists in any category)
 export function isPresetIngredient(ingredientName) {
+  if (!ingredientName || typeof ingredientName !== "string") return false;
   const normalized = ingredientName.toLowerCase().trim();
 
   for (const category of Object.values(ALERT_PRESETS)) {

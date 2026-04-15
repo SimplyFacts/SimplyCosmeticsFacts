@@ -25,6 +25,7 @@ export function useAlertHandlers() {
     addAlert,
     deleteAlert,
     batchAddAlerts,
+    batchRemoveAlerts,
     deactivateAlert,
   } = useAlertsStore();
 
@@ -40,6 +41,33 @@ export function useAlertHandlers() {
       }
     },
     [addAlert],
+  );
+
+  const handleAddAllPresets = useCallback(
+    async (ingredientNames) => {
+      setIsAdding(true);
+      try {
+        await batchAddAlerts(ingredientNames);
+      } catch (error) {
+        Alert.alert("Error", "Failed to add ingredient alerts");
+      } finally {
+        setIsAdding(false);
+      }
+    },
+    [batchAddAlerts],
+  );
+
+  const handleRemoveAllPresets = useCallback(
+    (categoryTitle, ingredientNames) => {
+      setPendingDeactivation({
+        ingredient_name: null,
+        categoryTitle,
+        ingredientNames,
+        isBatchRemoval: true,
+      });
+      setShowConfirmModal(true);
+    },
+    [],
   );
 
   const handleDeselectPreset = useCallback(
@@ -83,15 +111,19 @@ export function useAlertHandlers() {
     if (!pendingDeactivation) return;
 
     try {
-      await deactivateAlert(pendingDeactivation.id);
+      if (pendingDeactivation.isBatchRemoval) {
+        await batchRemoveAlerts(pendingDeactivation.ingredientNames);
+      } else {
+        await deactivateAlert(pendingDeactivation.id);
+      }
       setShowConfirmModal(false);
       setPendingDeactivation(null);
     } catch (error) {
-      Alert.alert("Error", "Failed to deactivate alert");
+      Alert.alert("Error", "Failed to remove alerts");
       setShowConfirmModal(false);
       setPendingDeactivation(null);
     }
-  }, [pendingDeactivation, deactivateAlert]);
+  }, [pendingDeactivation, deactivateAlert, batchRemoveAlerts]);
 
   const cancelDeactivation = useCallback(() => {
     setShowConfirmModal(false);
@@ -169,6 +201,8 @@ export function useAlertHandlers() {
     isApplyingProfile,
     profileSuccess,
     handleAddPreset,
+    handleAddAllPresets,
+    handleRemoveAllPresets,
     handleDeselectPreset,
     handleAddAlert,
     handleToggleAlert,

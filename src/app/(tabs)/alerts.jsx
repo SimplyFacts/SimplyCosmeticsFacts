@@ -52,6 +52,8 @@ export default function AlertsScreen() {
     isApplyingProfile,
     profileSuccess,
     handleAddPreset,
+    handleAddAllPresets,
+    handleRemoveAllPresets,
     handleDeselectPreset,
     handleAddAlert,
     handleToggleAlert,
@@ -95,6 +97,8 @@ export default function AlertsScreen() {
                 category={category}
                 alerts={alerts}
                 onAddPreset={handleAddPreset}
+                onAddAllPresets={handleAddAllPresets}
+                onRemoveAllPresets={handleRemoveAllPresets}
                 onDeselectPreset={handleDeselectPreset}
               />
             ))}
@@ -138,6 +142,11 @@ export default function AlertsScreen() {
       <ConfirmationModal
         visible={showConfirmModal}
         ingredientName={pendingDeactivation?.ingredient_name}
+        message={
+          pendingDeactivation?.isBatchRemoval
+            ? `Remove all ${pendingDeactivation.categoryTitle} alerts?\n\nYou can add them back anytime.`
+            : undefined
+        }
         onConfirm={confirmDeactivation}
         onCancel={cancelDeactivation}
       />
