@@ -59,10 +59,11 @@ export function hasAlert(ingredient, alerts) {
     const variations = resolveAlertVariations(alertName);
     for (const variation of variations) {
       const normalizedVariation = variation.toLowerCase().trim();
-      if (
-        normalizedIngredient.includes(normalizedVariation) ||
-        normalizedVariation.includes(normalizedIngredient)
-      ) {
+      const escapedVariation = normalizedVariation.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const escapedIngredient = normalizedIngredient.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      const variationInIngredient = new RegExp(`\\b${escapedVariation}\\b`).test(normalizedIngredient);
+      const ingredientInVariation = new RegExp(`\\b${escapedIngredient}\\b`).test(normalizedVariation);
+      if (variationInIngredient || ingredientInVariation) {
         return true;
       }
     }
