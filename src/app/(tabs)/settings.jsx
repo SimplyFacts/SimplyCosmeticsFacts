@@ -1,9 +1,9 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Alert } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { useSettings } from "@/hooks/useSettings";
+import { useScanHistory } from "@/hooks/useScanHistory";
 import {
-  handleClearScanHistory,
   handleClearAlerts,
   openURL,
 } from "@/utils/settingsActions";
@@ -30,6 +30,26 @@ export default function SettingsScreen() {
     handleTogglePFAS,
     handleToggleSulfates,
   } = useSettings();
+
+  const { clearHistory } = useScanHistory();
+
+  const handleClearScanHistory = () => {
+    Alert.alert(
+      "Clear Scan History",
+      "This will permanently delete all your scanned cosmetics. This cannot be undone.",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Clear All",
+          style: "destructive",
+          onPress: () => {
+            clearHistory();
+            Alert.alert("Success", "Scan history cleared");
+          },
+        },
+      ],
+    );
+  };
 
   return (
     <View style={{ flex: 1, backgroundColor: "#F9FAFB" }}>

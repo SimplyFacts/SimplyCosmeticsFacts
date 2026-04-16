@@ -357,7 +357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SimplyCosmeticsFacts/SimplyCosmeticsFacts.entitlements;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5MG8AK45K9;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -398,7 +398,7 @@
 				CODE_SIGN_ENTITLEMENTS = SimplyCosmeticsFacts/SimplyCosmeticsFacts.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5MG8AK45K9;
 				INFOPLIST_FILE = SimplyCosmeticsFacts/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Simply Cosmetics Facts";
