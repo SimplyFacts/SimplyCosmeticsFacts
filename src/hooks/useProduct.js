@@ -4,8 +4,27 @@ import { parseIngredients } from "@/utils/ingredientUtils";
 import { detectAllIngredients } from "@/utils/ingredientMatcher";
 import { useScanHistory } from "@/hooks/useScanHistory";
 
+const MOCK_BARCODE = "0000000000000";
+const MOCK_PRODUCT = {
+  barcode: "0000000000000",
+  name: "Calm Skin Balm",
+  brand: "Verdana",
+  ingredients: "Organic Aloe Barbadensis Leaf Juice, Organic Butyrospermum Parkii (Shea) Butter, Vegetable Glycerin, Simmondsia Chinensis (Jojoba) Seed Oil, Cetearyl Olivate, Sorbitan Olivate, Squalane (Olive Derived), Leuconostoc/Radish Root Ferment Filtrate, Euphorbia Cerifera (Candelilla) Wax, Lactobacillus Ferment, Cocos Nucifera (Coconut) Fruit Extract, Avena Sativa (Colloidal Oatmeal) Kernel Flour, Sodium Hyaluronate (Plant-Derived), Calendula Officinalis Flower Extract, Tocopherol (Non-GMO Vitamin E), Amorphophallus Konjac Root Powder, Rosmarinus Officinalis (Rosemary) Leaf Extract",
+  allergens: [],
+  traces: [],
+  crossContaminationWarnings: [],
+  additives_tags: [],
+  ingredients_analysis_tags: [],
+  ingredients_tags: [],
+  nutritional_info: {},
+  image_url: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80",
+};
+
 // Fetch product directly from Open Beauty Facts
 async function fetchProduct(barcode) {
+  // Uncomment to test "No concerns found" green card — scan barcode 0000000000000
+  // if (barcode === MOCK_BARCODE) return MOCK_PRODUCT;
+
   const response = await fetch(
     `https://world.openbeautyfacts.org/api/v0/product/${barcode}.json`
   );
