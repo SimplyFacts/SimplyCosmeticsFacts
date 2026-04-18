@@ -189,7 +189,7 @@ export default function ScannerScreen() {
               fontWeight: "600",
             }}
           >
-            Grant Permission
+            Continue
           </Text>
         </TouchableOpacity>
       </View>
