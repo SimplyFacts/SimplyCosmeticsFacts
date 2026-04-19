@@ -236,14 +236,18 @@ export default function TipJarScreen() {
           </View>
         ) : tipPackages.length > 0 ? (
           <View>
-            {tipPackages.map((pkg, index) => {
-              const display = TIP_DISPLAY[index] || TIP_DISPLAY[0];
+            {TIP_DISPLAY.map((display, index) => {
+              const pkg = tipPackages.find((p) =>
+                p.product.identifier.includes(
+                  index === 0 ? "small" : index === 1 ? "medium" : "large"
+                )
+              );
               return (
                 <TipCard
-                  key={pkg.identifier}
+                  key={display.label}
                   display={display}
-                  tipPackage={pkg}
-                  onPress={() => handleTip(pkg)}
+                  tipPackage={pkg || null}
+                  onPress={() => pkg && handleTip(pkg)}
                   isPurchasing={isPurchasing}
                 />
               );
